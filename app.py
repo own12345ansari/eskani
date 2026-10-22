@@ -4,8 +4,6 @@ from pathlib import Path
 import streamlit as st
 
 BASE = Path(__file__).parent
-LOGO = next((f for f in BASE.iterdir() if f.name.lower() == "logo.png"), None)
-LOGO_PATH = str(LOGO) if LOGO else None
 WA = "https://wa.me/962787355555"
 PT = "https://webportals.ju.edu.jo/housing/"
 FALLBACK = (
@@ -17,7 +15,7 @@ WELCOME = "أهلًا فيك! أنا المساعد الصوتي لصندوق إ
 QUICK = ["كيف اشترك بالصندوق؟", "كم أقصى قيمة للقرض؟", "شو نسبة الاقتطاع الشهري؟",
          "كيف بنصرف دفعات البناء؟", "بقدر أأجل الأقساط؟", "كيف بفك الرهن؟"]
 
-st.set_page_config(page_title="المساعد الصوتي – صندوق إسكان العاملين", page_icon=LOGO_PATH or "🏠", layout="centered")
+st.set_page_config(page_title="المساعد الصوتي – صندوق إسكان العاملين", page_icon=str(BASE / "logo.png"), layout="centered")
 
 st.markdown("""
 <style>
@@ -89,8 +87,7 @@ ss.setdefault("last_audio", None)
 ss.setdefault("speech", None)
 
 c = st.columns([1, 1, 1])[1]
-if LOGO_PATH:
-    c.image(LOGO_PATH, use_container_width=True)
+c.image(str(BASE / "logo.png"), use_container_width=True)
 st.title("مساعد الصندوق الصوتي")
 st.markdown('<div class="sub">اسأل بصوتك أو اكتب سؤالك عن صندوق إسكان العاملين في الجامعة الأردنية</div>', unsafe_allow_html=True)
 
@@ -107,7 +104,7 @@ for i, q in enumerate(QUICK):
         handle(q)
 
 for role, text in ss.msgs:
-    with st.chat_message(role, avatar=LOGO_PATH if (role == "assistant" and LOGO_PATH) else None):
+    with st.chat_message(role, avatar=str(BASE / "logo.png") if role == "assistant" else None):
         st.markdown(text, unsafe_allow_html=True)
 
 if ss.speech:
