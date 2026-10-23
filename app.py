@@ -2,6 +2,7 @@ import base64, hashlib, html, io, json, re, time
 from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 BASE = Path(__file__).parent
 LOGO = next((f for f in BASE.iterdir() if f.name.lower() == "logo.png"), None)
@@ -19,6 +20,57 @@ AR = re.compile(r"[\u0600-\u06FF]")
 NO_ANSWER = "ما لقيت هاي المعلومة في دليل الصندوق. بتقدر تتواصل مع إدارة الصندوق مباشرة أو تراجع بوابة الصندوق الإلكترونية."
 QUICK = ["كيف اشترك بالصندوق؟", "كم أقصى قيمة للقرض؟", "شو نسبة الاقتطاع الشهري؟",
          "كيف بنصرف دفعات البناء؟", "بقدر أأجل الأقساط؟", "كيف بفك الرهن؟"]
+
+MIC_JS = r'''<script>
+(function(){
+ var win=window.parent, doc=win.document;
+ if(win.__hfMicInit){return;} win.__hfMicInit=true;
+ var SR=win.SpeechRecognition||win.webkitSpeechRecognition;
+ var css=doc.createElement('style');
+ css.textContent=`
+ .hf-wrap{display:inline-flex;align-items:center;gap:6px;margin-inline:6px;direction:ltr}
+ .hf-mic{width:38px;height:38px;border-radius:50%;border:0;background:#0B2A5C;color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s ease,background .2s ease;padding:0}
+ .hf-mic:hover{transform:scale(1.06)} .hf-mic:focus-visible,.hf-lang:focus-visible{outline:3px solid #C9A24A;outline-offset:2px}
+ .hf-mic svg{width:20px;height:20px}
+ .hf-mic.rec{background:#C9A24A;color:#0B2A5C;animation:hfp 1.1s infinite}
+ @keyframes hfp{50%{box-shadow:0 0 0 9px rgba(201,162,74,.28)}}
+ @media (prefers-reduced-motion:reduce){.hf-mic.rec{animation:none}}
+ .hf-lang{border:1px solid #C9A24A;background:#fff;color:#0B2A5C;border-radius:999px;font:700 .72rem sans-serif;padding:5px 9px;cursor:pointer;min-height:30px}
+ .hf-corner{position:fixed;left:14px;bottom:8px;font:500 .75rem 'Noto Sans Arabic',sans-serif;color:#475569;z-index:50;pointer-events:none}
+ `;
+ doc.head.appendChild(css);
+ var corner=doc.createElement('div'); corner.className='hf-corner'; corner.textContent='اسأل بصوتك · Ask by voice'; doc.body.appendChild(corner);
+ var lang=win.localStorage.getItem('hf_lang')||'ar-JO', rec=null, on=false;
+ var wrap=doc.createElement('span'); wrap.id='hf-mic-wrap'; wrap.className='hf-wrap';
+ var mic=doc.createElement('button'); mic.type='button'; mic.className='hf-mic'; mic.setAttribute('aria-label','تحدث بالميكروفون'); mic.title='اضغط وتحدث';
+ mic.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>';
+ var chip=doc.createElement('button'); chip.type='button'; chip.className='hf-lang';
+ function setLang(l){lang=l; win.localStorage.setItem('hf_lang',l); chip.textContent=l.indexOf('ar')===0?'AR':'EN'; chip.title=l.indexOf('ar')===0?'لغة الكلام: العربية':'Speech language: English';}
+ chip.onclick=function(e){e.preventDefault(); setLang(lang.indexOf('ar')===0?'en-US':'ar-JO');};
+ function ta(){return doc.querySelector('[data-testid="stChatInputTextArea"]')||doc.querySelector('[data-testid="stChatInput"] textarea');}
+ function setText(t){var el=ta(); if(!el)return; var set=Object.getOwnPropertyDescriptor(win.HTMLTextAreaElement.prototype,'value').set; set.call(el,t); el.dispatchEvent(new win.Event('input',{bubbles:true}));}
+ function submit(){
+  var b=doc.querySelector('[data-testid="stChatInputSubmitButton"]'); if(b){b.click();}
+  setTimeout(function(){var el=ta(); if(el&&el.value){el.dispatchEvent(new win.KeyboardEvent('keydown',{key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));}},200);
+ }
+ mic.onclick=function(e){
+  e.preventDefault();
+  if(!SR){alert('المتصفح لا يدعم التعرف على الصوت. استخدم Chrome أو Edge. · Speech recognition is not supported in this browser.');return;}
+  if(on){rec.stop();return;}
+  if(win.__hfAudio){try{win.__hfAudio.pause();}catch(x){}}
+  rec=new SR(); rec.lang=lang; rec.interimResults=true; rec.continuous=false;
+  rec.onstart=function(){on=true; mic.classList.add('rec');};
+  rec.onresult=function(ev){var t=''; for(var i=0;i<ev.results.length;i++){t+=ev.results[i][0].transcript;} setText(t); if(ev.results[ev.results.length-1].isFinal){setTimeout(submit,350);}};
+  rec.onerror=function(ev){ if(ev.error==='not-allowed'||ev.error==='service-not-allowed'){alert('الميكروفون غير مسموح. فعّل الإذن من إعدادات المتصفح. · Microphone permission is blocked.');} };
+  rec.onend=function(){on=false; mic.classList.remove('rec');};
+  try{rec.start();}catch(x){}
+ };
+ wrap.appendChild(chip); wrap.appendChild(mic); setLang(lang);
+ function place(){ if(doc.getElementById('hf-mic-wrap'))return; var b=doc.querySelector('[data-testid="stChatInputSubmitButton"]'); if(b&&b.parentNode){b.parentNode.insertBefore(wrap,b);} }
+ place();
+ new win.MutationObserver(place).observe(doc.body,{childList:true,subtree:true});
+})();
+</script>'''
 
 st.set_page_config(page_title="مساعد صندوق إسكان العاملين", page_icon=LOGO_PATH or "🏠", layout="centered",
                    initial_sidebar_state="collapsed")
@@ -195,12 +247,11 @@ def tts(text, lang):
         return None, None
 
 
-def transcribe(wav, code):
-    import speech_recognition as sr
-    r = sr.Recognizer()
-    with sr.AudioFile(io.BytesIO(wav)) as src:
-        audio = r.record(src)
-    return r.recognize_google(audio, language=code)
+def play(audio_bytes):
+    b64 = base64.b64encode(audio_bytes).decode()
+    components.html("<script>try{var w=window.parent;if(w.__hfAudio){w.__hfAudio.pause();}"
+                    "w.__hfAudio=new w.Audio('data:audio/mp3;base64," + b64 + "');"
+                    "w.__hfAudio.play().catch(function(){});}catch(e){}</script>", height=0)
 
 
 ss = st.session_state
@@ -240,7 +291,7 @@ if ss.pending:
             time.sleep(0.6)
         box.empty()
         if audio:
-            st.audio(audio, format="audio/mp3", autoplay=True)
+            play(audio)
             if engine == "gtts":
                 st.caption("الصوت الاحتياطي مفعّل (الجودة أقل من المعتاد)")
         out, acc = st.empty(), ""
@@ -253,42 +304,17 @@ if ss.pending:
             link_buttons(links, lang)
     ss.msgs += [("user", q, [], lang), ("assistant", text, links, lang)]
 
-st.markdown('<div class="voice-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
-            'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/>'
-            '<path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>اسأل بصوتك · Ask by voice</div>', unsafe_allow_html=True)
-ss.setdefault("mic_lang", "ar")
 ss.setdefault("voice_on", True)
 _on = "background:#0B2A5C!important;color:#fff!important;border-color:#0B2A5C!important"
-st.markdown(f"<style>.st-key-lang_{ss.mic_lang} button{{{_on}}}"
-            + (f".st-key-voice_btn button{{{_on}}}" if ss.voice_on else "") + "</style>", unsafe_allow_html=True)
-c1, c2, c3 = st.columns([1, 1, 2])
-if c1.button("العربية", key="lang_ar", use_container_width=True):
-    ss.mic_lang = "ar"
-    st.rerun()
-if c2.button("English", key="lang_en", use_container_width=True):
-    ss.mic_lang = "en"
-    st.rerun()
-if c3.button("الرد الصوتي: " + ("مفعّل" if ss.voice_on else "متوقف"), key="voice_btn", use_container_width=True,
+st.markdown("<style>" + (f".st-key-voice_btn button{{{_on}}}" if ss.voice_on else "") + "</style>", unsafe_allow_html=True)
+vc = st.columns([2, 3])[0]
+if vc.button("الرد الصوتي: " + ("مفعّل" if ss.voice_on else "متوقف"), key="voice_btn", use_container_width=True,
              icon=":material/volume_up:" if ss.voice_on else ":material/volume_off:"):
     ss.voice_on = not ss.voice_on
     st.rerun()
-audio_in = st.audio_input("اضغط على الميكروفون وتحدث، ثم اضغط إيقاف · Record, then stop", key=f"mic{ss.akey}")
-if audio_in is not None:
-    data = audio_in.getvalue()
-    h = hashlib.md5(data).hexdigest()
-    if h != ss.last_audio:
-        ss.last_audio = h
-        try:
-            with st.spinner("عم بسمعك…"):
-                ss.pending = transcribe(data, "ar-JO" if ss.mic_lang == "ar" else "en-US")
-            ss.akey += 1
-            st.rerun()
-        except Exception as ex:
-            if type(ex).__name__ == "RerunException":
-                raise
-            st.warning("ما قدرت أفهم الصوت، جرّب مرة ثانية أو اكتب سؤالك. · Couldn't understand the audio, please try again.")
+components.html(MIC_JS, height=0)
 
-if prompt := st.chat_input("اكتب سؤالك هنا… · Type your question"):
+if prompt := st.chat_input("اكتب سؤالك أو اضغط على الميكروفون… · Type or tap the mic"):
     ss.pending = prompt
     st.rerun()
 
