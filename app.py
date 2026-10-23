@@ -63,11 +63,33 @@ div.stButton>button:focus-visible,a:focus-visible{outline:3px solid var(--gold)!
 [data-testid="stChatInputSubmitButton"],[data-testid="stChatInput"] button{background:var(--navy)!important;color:#fff!important;border-radius:50%!important}
 [data-testid="stChatInput"] button:disabled{background:#CBD5E1!important}
 [data-testid="stChatInput"] textarea{caret-color:var(--navy)}
-[data-testid="stAudioInput"]{filter:hue-rotate(205deg) saturate(1.5) brightness(.72)}
+[data-testid="stAudioInput"]{filter:hue-rotate(205deg) saturate(1.3)}
+[data-testid="stRadio"],[data-testid="stToggle"]{filter:hue-rotate(205deg) saturate(1.2) brightness(.7)}
 [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"]{flex:0 1 auto!important;width:fit-content!important}
 [data-testid="stAudio"] audio,audio{height:36px;width:100%;max-width:340px}
 .stRadio label,.stToggle label{font-family:inherit}
+.block-container{position:relative;isolation:isolate;background:transparent!important}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgfx:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 85% 8%,rgba(201,162,74,.13),transparent 70%),radial-gradient(700px 500px at 8% 95%,rgba(11,42,92,.10),transparent 70%)}
+.pt{position:absolute;bottom:-40px;border-radius:50%;opacity:0;animation:rise linear infinite}
+.pt.g{background:#C9A24A}.pt.n{background:#0B2A5C}
+.pt.h{border-radius:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9A24A' stroke-width='1.5' stroke-linejoin='round'><path d='M3 11 12 3l9 8v10H3z'/><path d='M9 21v-6h6v6'/></svg>") center/contain no-repeat}
+@keyframes rise{0%{transform:translate(0,0) rotate(0);opacity:0}12%{opacity:var(--o)}88%{opacity:var(--o)}100%{transform:translate(var(--dx),-115vh) rotate(40deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pt{animation:none;bottom:auto;top:var(--t);opacity:var(--o)}}
 </style>""", unsafe_allow_html=True)
+
+
+import random
+_r = random.Random(11)
+_p = []
+for _i in range(30):
+    _k = "h" if _i % 4 == 0 else ("n" if _i % 5 == 0 else "g")
+    _sz = _r.randint(16, 26) if _k == "h" else _r.randint(3, 8)
+    _o = 0.5 if _k == "h" else (0.22 if _k == "n" else 0.4)
+    _p.append(f'<span class="pt {_k}" style="left:{_r.randint(2, 96)}%;width:{_sz}px;height:{_sz}px;'
+              f'animation-duration:{_r.randint(22, 44)}s;animation-delay:-{_r.randint(0, 40)}s;'
+              f'--dx:{_r.randint(-70, 70)}px;--o:{_o};--t:{_r.randint(5, 95)}%"></span>')
+st.markdown('<div class="bgfx" aria-hidden="true">' + "".join(_p) + "</div>", unsafe_allow_html=True)
 
 
 def norm(s):
