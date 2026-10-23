@@ -1,2 +1,4 @@
 streamlit>=1.40
 SpeechRecognition>=3.10
+edge-tts>=6.1
+gTTS>=2.5

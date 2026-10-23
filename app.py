@@ -1,4 +1,4 @@
-import base64, hashlib, io, json, re, time
+import base64, hashlib, html, io, json, re, time
 from pathlib import Path
 
 import streamlit as st
@@ -10,6 +10,8 @@ WA = "https://wa.me/962787355555"
 PT = "https://webportals.ju.edu.jo/housing/"
 
 WELCOME = "أهلًا فيك! أنا مساعد صندوق إسكان العاملين في الجامعة الأردنية. اسألني بصوتك أو اكتب سؤالك عن الاشتراك، القروض، الدفعات، التأجيل، فك الرهن أو السداد المبكر."
+NO_ANSWER_EN = "I couldn't find that in the Fund guide. You can contact the Fund management directly or check the Fund portal."
+AR = re.compile(r"[\u0600-\u06FF]")
 NO_ANSWER = "ما لقيت هاي المعلومة في دليل الصندوق. بتقدر تتواصل مع إدارة الصندوق مباشرة أو تراجع بوابة الصندوق الإلكترونية."
 QUICK = ["كيف اشترك بالصندوق؟", "كم أقصى قيمة للقرض؟", "شو نسبة الاقتطاع الشهري؟",
          "كيف بنصرف دفعات البناء؟", "بقدر أأجل الأقساط؟", "كيف بفك الرهن؟"]
@@ -57,6 +59,14 @@ div.stButton>button:focus-visible,a:focus-visible{outline:3px solid var(--gold)!
 .voice-h{display:flex;align-items:center;gap:.5rem;color:var(--navy);font-weight:700;font-size:.95rem;margin:1.2rem 0 .3rem}
 .voice-h svg{width:20px;height:20px}
 .foot{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+[data-testid="stChatInput"]:focus-within,[data-testid="stChatInput"] div:focus-within{border-color:var(--navy)!important;box-shadow:0 0 0 2px rgba(11,42,92,.18)!important}
+[data-testid="stChatInputSubmitButton"],[data-testid="stChatInput"] button{background:var(--navy)!important;color:#fff!important;border-radius:50%!important}
+[data-testid="stChatInput"] button:disabled{background:#CBD5E1!important}
+[data-testid="stChatInput"] textarea{caret-color:var(--navy)}
+[data-testid="stAudioInput"]{filter:hue-rotate(205deg) saturate(1.5) brightness(.72)}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"]{flex:0 1 auto!important;width:fit-content!important}
+[data-testid="stAudio"] audio,audio{height:36px;width:100%;max-width:340px}
+.stRadio label,.stToggle label{font-family:inherit}
 </style>""", unsafe_allow_html=True)
 
 
@@ -84,42 +94,92 @@ def to_md(h):
     return re.sub(r"<[^>]+>", "", h).strip(), links
 
 
-def answer(q):
-    t, best, score = norm(q), None, 0
+def answer(q, lang):
+    t = q.lower() if lang == "en" else norm(q)
+    best, score = None, 0
     for e in load_kb():
-        s = sum(len(k) for k in e["n"] if k in t)
-        if s > score:
-            best, score = e, s
+        keys = e["ke"] if lang == "en" else e["n"]
+        sc = sum(len(k) for k in keys if k in t)
+        if sc > score:
+            best, score = e, sc
     if best and score >= 4:
-        return to_md(best["a"])
-    return NO_ANSWER, ["wa", "pt"]
+        ar_md, links = to_md(best["a"])
+        return (best["en"] if lang == "en" else ar_md), links
+    return (NO_ANSWER_EN if lang == "en" else NO_ANSWER), ["wa", "pt"]
 
 
-def stream(text):
+def wrap(t, lang):
+    d, a = ("rtl", "right") if lang == "ar" else ("ltr", "left")
+    return f'<div dir="{d}" style="text-align:{a}">\n\n{t}\n\n</div>'
+
+
+def tokens(text):
     for tok in re.findall(r"\s+|\S+", text):
         yield tok
-        if tok.strip():
-            time.sleep(0.04)
 
 
-def link_buttons(links):
+def link_buttons(links, lang="ar"):
     cols = st.columns(len(links) + 1)
+    wa = "WhatsApp 0787355555" if lang == "en" else "واتساب الإدارة 0787355555"
+    pt = "Fund portal" if lang == "en" else "بوابة الصندوق"
     if "wa" in links:
-        cols[0].link_button("واتساب الإدارة 0787355555", WA, icon=":material/chat:")
+        cols[0].link_button(wa, WA, icon=":material/chat:")
     if "pt" in links:
-        cols[len(links) - 1].link_button("بوابة الصندوق", PT, icon=":material/open_in_new:")
+        cols[len(links) - 1].link_button(pt, PT, icon=":material/open_in_new:")
 
 
-def transcribe(wav):
+def spoken(md, lang):
+    t = re.sub(r"\n\n\*\[.*?\]\*", "", md)
+    t = re.sub(r"\*\*(.*?)\*\*", r"\1", t)
+    t = re.sub(r"^\s*[-*]\s*", "", t, flags=re.M)
+    t = t.replace("%", " بالمئة" if lang == "ar" else " percent")
+    t = re.sub(r"\s+", " ", re.sub(r"\s*\n+\s*", ". ", t)).strip()
+    if len(t) > 900:
+        t = t[:900].rsplit(". ", 1)[0] + "."
+    return t
+
+
+def tts(text, lang):
+    voice = "ar-JO-TaimNeural" if lang == "ar" else "en-US-GuyNeural"
+    try:
+        import asyncio
+        import edge_tts
+
+        async def run():
+            buf = b""
+            async for c in edge_tts.Communicate(text, voice, rate="-4%").stream():
+                if c["type"] == "audio":
+                    buf += c["data"]
+            return buf
+
+        loop = asyncio.new_event_loop()
+        try:
+            data = loop.run_until_complete(run())
+        finally:
+            loop.close()
+        if data:
+            return data
+    except Exception:
+        pass
+    try:
+        from gtts import gTTS
+        b = io.BytesIO()
+        gTTS(text=text, lang=lang).write_to_fp(b)
+        return b.getvalue()
+    except Exception:
+        return None
+
+
+def transcribe(wav, code):
     import speech_recognition as sr
     r = sr.Recognizer()
     with sr.AudioFile(io.BytesIO(wav)) as src:
         audio = r.record(src)
-    return r.recognize_google(audio, language="ar-JO")
+    return r.recognize_google(audio, language=code)
 
 
 ss = st.session_state
-ss.setdefault("msgs", [("assistant", WELCOME, [])])
+ss.setdefault("msgs", [("assistant", WELCOME, [], "ar")])
 ss.setdefault("pending", None)
 ss.setdefault("akey", 0)
 ss.setdefault("last_audio", None)
@@ -135,48 +195,61 @@ if len(ss.msgs) <= 1 and not ss.pending:
             ss.pending = q
             st.rerun()
 
-for role, text, links in ss.msgs:
+for role, text, links, lang in ss.msgs:
     with st.chat_message(role, avatar=LOGO_PATH if role == "assistant" else None):
-        st.markdown(text)
+        st.markdown(wrap(html.escape(text) if role == "user" else text, lang), unsafe_allow_html=True)
         if links:
-            link_buttons(links)
+            link_buttons(links, lang)
 
 if ss.pending:
     q, ss.pending = ss.pending, None
+    lang = "ar" if AR.search(q) else "en"
     with st.chat_message("user"):
-        st.markdown(q)
-    text, links = answer(q)
+        st.markdown(wrap(html.escape(q), lang), unsafe_allow_html=True)
+    text, links = answer(q, lang)
     with st.chat_message("assistant", avatar=LOGO_PATH):
         box = st.empty()
         box.markdown('<div class="typing"><span></span><span></span><span></span></div>', unsafe_allow_html=True)
-        time.sleep(0.7)
-        box.write_stream(stream(text))
+        audio = tts(spoken(text, lang), lang) if ss.get("voice_on", True) else None
+        if audio is None:
+            time.sleep(0.6)
+        box.empty()
+        if audio:
+            st.audio(audio, format="audio/mp3", autoplay=True)
+        out, acc = st.empty(), ""
+        for tok in tokens(text):
+            acc += tok
+            out.markdown(wrap(acc, lang), unsafe_allow_html=True)
+            if tok.strip():
+                time.sleep(0.04)
         if links:
-            link_buttons(links)
-    ss.msgs += [("user", q, []), ("assistant", text, links)]
+            link_buttons(links, lang)
+    ss.msgs += [("user", q, [], lang), ("assistant", text, links, lang)]
 
 st.markdown('<div class="voice-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
             'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/>'
-            '<path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>اسأل بصوتك</div>', unsafe_allow_html=True)
-audio = st.audio_input("اضغط على الميكروفون وتحدث، ثم اضغط إيقاف ليصلني سؤالك", key=f"mic{ss.akey}")
-if audio is not None:
-    data = audio.getvalue()
+            '<path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>اسأل بصوتك · Ask by voice</div>', unsafe_allow_html=True)
+o1, o2 = st.columns(2)
+mic_lang = o1.radio("لغة الكلام / Speech language", ["العربية", "English"], horizontal=True, key="mic_lang")
+o2.toggle("الرد الصوتي · Voice reply", value=True, key="voice_on")
+audio_in = st.audio_input("اضغط على الميكروفون وتحدث، ثم اضغط إيقاف · Record, then stop", key=f"mic{ss.akey}")
+if audio_in is not None:
+    data = audio_in.getvalue()
     h = hashlib.md5(data).hexdigest()
     if h != ss.last_audio:
         ss.last_audio = h
         try:
             with st.spinner("عم بسمعك…"):
-                ss.pending = transcribe(data)
+                ss.pending = transcribe(data, "ar-JO" if mic_lang == "العربية" else "en-US")
             ss.akey += 1
             st.rerun()
         except Exception as ex:
             if type(ex).__name__ == "RerunException":
                 raise
-            st.warning("ما قدرت أفهم الصوت، جرّب مرة ثانية أو اكتب سؤالك.")
+            st.warning("ما قدرت أفهم الصوت، جرّب مرة ثانية أو اكتب سؤالك. · Couldn't understand the audio, please try again.")
 
-if prompt := st.chat_input("اكتب سؤالك هنا…"):
+if prompt := st.chat_input("اكتب سؤالك هنا… · Type your question"):
     ss.pending = prompt
     st.rerun()
 
-st.markdown(f'<div class="foot"></div>', unsafe_allow_html=True)
 link_buttons(["wa", "pt"])

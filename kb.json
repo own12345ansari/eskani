@@ -11,7 +11,16 @@
    "مين المستفيد",
    "بقدر اشترك"
   ],
-  "a": "الاشتراك اختياري لكل عامل في الجامعة: عضو هيئة التدريس والموظف المعيّن، ما عدا المحاضر المتفرغ والعامل بالأجرة اليومية. ويشمل الصندوق العاملين في الجامعة ومستشفى الجامعة وفرع العقبة.<small>[النظام م5؛ التعليمات التنفيذية م3]</small>"
+  "a": "الاشتراك اختياري لكل عامل في الجامعة: عضو هيئة التدريس والموظف المعيّن، ما عدا المحاضر المتفرغ والعامل بالأجرة اليومية. ويشمل الصندوق العاملين في الجامعة ومستشفى الجامعة وفرع العقبة.<small>[النظام م5؛ التعليمات التنفيذية م3]</small>",
+  "ke": [
+   "who can join",
+   "who can subscribe",
+   "eligible",
+   "eligibility",
+   "can i join",
+   "can i subscribe"
+  ],
+  "en": "Membership is optional for every University of Jordan employee: faculty members and appointed staff, except full-time lecturers and daily-wage workers. It covers the University, the University Hospital and the Aqaba branch."
  },
  {
   "k": [
@@ -22,7 +31,19 @@
    "اشترك بالصندوق",
    "تقديم طلب"
   ],
-  "a": "بتقدّم طلب اشتراك إلكترونيًا عبر بوابة الصندوق، بيوصل الدائرة خلال يومين، وبيتفعّل على النظام المالي ثم بينعرض على مجلس الإدارة. بتعرف القرار من خيار «طلباتي» في البوابة. بعد الموافقة بينفّذ مدير وحدة الشؤون المالية الاقتطاع الشهري وبدل الانتساب.<small>[الإجراءات المعتمدة؛ عرض 2026]</small><div class=\"btns\"><a class=\"btn pt\" target=\"_blank\" rel=\"noopener\" href=\"https://webportals.ju.edu.jo/housing/\">افتح البوابة</a></div>"
+  "a": "بتقدّم طلب اشتراك إلكترونيًا عبر بوابة الصندوق، بيوصل الدائرة خلال يومين، وبيتفعّل على النظام المالي ثم بينعرض على مجلس الإدارة. بتعرف القرار من خيار «طلباتي» في البوابة. بعد الموافقة بينفّذ مدير وحدة الشؤون المالية الاقتطاع الشهري وبدل الانتساب.<small>[الإجراءات المعتمدة؛ عرض 2026]</small><div class=\"btns\"><a class=\"btn pt\" target=\"_blank\" rel=\"noopener\" href=\"https://webportals.ju.edu.jo/housing/\">افتح البوابة</a></div>",
+  "ke": [
+   "how to join",
+   "how do i join",
+   "how to subscribe",
+   "how do i subscribe",
+   "how to apply",
+   "membership request",
+   "sign up",
+   "register",
+   "join the fund"
+  ],
+  "en": "Submit a membership request electronically through the Fund portal. It reaches the Fund office within two days, is activated on the financial system, then goes to the Board for a decision. You can follow the decision under 'My Requests' in the portal."
  },
  {
   "k": [
@@ -32,7 +53,16 @@
    "رسم الانتساب",
    "كم الانتساب"
   ],
-  "a": "بدل الانتساب 20 دينارًا، بيندفع مرة واحدة وغير مسترد.<small>[التعليمات التنفيذية م4]</small>"
+  "a": "بدل الانتساب 20 دينارًا، بيندفع مرة واحدة وغير مسترد.<small>[التعليمات التنفيذية م4]</small>",
+  "ke": [
+   "membership fee",
+   "joining fee",
+   "registration fee",
+   "entry fee",
+   "20 jd",
+   "how much to join"
+  ],
+  "en": "The membership fee is **20 JD**, paid once and non-refundable."
  },
  {
   "k": [
@@ -49,7 +79,16 @@
    "6%",
    "رفع النسبه"
   ],
-  "a": "الاقتطاع الشهري <b>5%</b> من الراتب الإجمالي الخاضع للضمان الاجتماعي للمشتركين الجدد (أعضاء هيئة التدريس والباحثين والهيئة الإدارية) من تاريخ 8/7/2026. أما المشتركون القائمون فنسبتهم ما زالت <b>4%</b> لأن القرار ما تناولهم. وكان في اقتراح سابق (2024) لرفعها إلى 6% لكنه غير ساري.<small>[قرار مجلس الجامعة 12/2026؛ النظام م5]</small>"
+  "a": "الاقتطاع الشهري <b>5%</b> من الراتب الإجمالي الخاضع للضمان الاجتماعي للمشتركين الجدد (أعضاء هيئة التدريس والباحثين والهيئة الإدارية) من تاريخ 8/7/2026. أما المشتركون القائمون فنسبتهم ما زالت <b>4%</b> لأن القرار ما تناولهم. وكان في اقتراح سابق (2024) لرفعها إلى 6% لكنه غير ساري.<small>[قرار مجلس الجامعة 12/2026؛ النظام م5]</small>",
+  "ke": [
+   "deduction",
+   "contribution",
+   "percentage",
+   "how much is deducted",
+   "5%",
+   "4%"
+  ],
+  "en": "The monthly deduction is **5%** of the gross salary subject to social security for new members from 8 July 2026. Existing members remain at **4%**, since the decision applied only to new members."
  },
  {
   "k": [
@@ -72,7 +111,19 @@
    "مبلغ القرض",
    "كم مبلغ"
   ],
-  "a": "قيمة القرض <b>4 أضعاف الراتب الإجمالي السنوي</b> للمشترك، بحد أقصى <b>50,000 دينار</b> (كان 30,000 سابقًا، والتعديل نافذ من 1/1/2024).<small>[النظام م17؛ قرار مجلس الجامعة 35/2023]</small>"
+  "a": "قيمة القرض <b>4 أضعاف الراتب الإجمالي السنوي</b> للمشترك، بحد أقصى <b>50,000 دينار</b> (كان 30,000 سابقًا، والتعديل نافذ من 1/1/2024).<small>[النظام م17؛ قرار مجلس الجامعة 35/2023]</small>",
+  "ke": [
+   "loan amount",
+   "maximum loan",
+   "how much loan",
+   "loan limit",
+   "how much can i borrow",
+   "borrow",
+   "50,000",
+   "50000",
+   "max loan"
+  ],
+  "en": "The loan is **four times the annual gross salary**, up to a maximum of **50,000 JD** (it was 30,000 JD before, effective 1 January 2024)."
  },
  {
   "k": [
@@ -85,7 +136,19 @@
    "مده القرض",
    "تسديد القرض"
   ],
-  "a": "مدة السداد حتى <b>180 قسطًا شهريًا (15 سنة)</b>. القسط الأول بيستحق بعد شهرين من تاريخ آخر دفعة.<small>[النظام م17؛ التعليمات المالية م5 وم9]</small>"
+  "a": "مدة السداد حتى <b>180 قسطًا شهريًا (15 سنة)</b>. القسط الأول بيستحق بعد شهرين من تاريخ آخر دفعة.<small>[النظام م17؛ التعليمات المالية م5 وم9]</small>",
+  "ke": [
+   "repayment period",
+   "how long to repay",
+   "how many installments",
+   "180",
+   "loan term",
+   "loan duration",
+   "number of installments",
+   "monthly installments",
+   "how many payments"
+  ],
+  "en": "Repayment is up to **180 monthly installments (15 years)**. The first installment is due two months after the last disbursement."
  },
  {
   "k": [
@@ -99,7 +162,19 @@
    "ربا",
    "كلفه القرض"
   ],
-  "a": "النفقات الإدارية <b>3,750 دينارًا</b> بتندفع مع الأقساط طوال مدة القرض. وحسب الفتوى الشرعية هي أجور خدمات القروض بتغطي التكلفة الفعلية للصندوق دون أي ربح، وما بيتحمّل المقترض إلا أصل القرض والنفقات الإدارية والتأمين.<small>[التعليمات المالية م4؛ فتوى 2025]</small>"
+  "a": "النفقات الإدارية <b>3,750 دينارًا</b> بتندفع مع الأقساط طوال مدة القرض. وحسب الفتوى الشرعية هي أجور خدمات القروض بتغطي التكلفة الفعلية للصندوق دون أي ربح، وما بيتحمّل المقترض إلا أصل القرض والنفقات الإدارية والتأمين.<small>[التعليمات المالية م4؛ فتوى 2025]</small>",
+  "ke": [
+   "administrative",
+   "admin fee",
+   "admin expenses",
+   "3,750",
+   "3750",
+   "loan fee",
+   "loan cost",
+   "interest",
+   "riba"
+  ],
+  "en": "Administrative expenses are **3,750 JD**, paid with the installments throughout the loan. According to the Sharia fatwa they only cover the Fund's actual cost, with no profit."
  },
  {
   "k": [
@@ -110,7 +185,14 @@
    "0.160",
    "160 فلس"
   ],
-  "a": "الصندوق بيؤمّن جماعيًا على حياة المقترضين وبتنضاف الرسوم للأقساط. المعدل الحالي <b>0.160 دينار شهريًا لكل 1,000 دينار</b> من رصيد القرض المستحق (مثلًا رصيد 50,000 = 8 دنانير شهريًا) من تشرين الأول 2024.<small>[قرار مجلس الإدارة 286/2024]</small>"
+  "a": "الصندوق بيؤمّن جماعيًا على حياة المقترضين وبتنضاف الرسوم للأقساط. المعدل الحالي <b>0.160 دينار شهريًا لكل 1,000 دينار</b> من رصيد القرض المستحق (مثلًا رصيد 50,000 = 8 دنانير شهريًا) من تشرين الأول 2024.<small>[قرار مجلس الإدارة 286/2024]</small>",
+  "ke": [
+   "insurance",
+   "life insurance",
+   "premium",
+   "takaful"
+  ],
+  "en": "The Fund insures borrowers' lives as a group, and the premium is added to the monthly installments. The current rate is **0.160 JD per month for every 1,000 JD** of outstanding balance (for example, a balance of 50,000 JD means 8 JD per month), since October 2024."
  },
  {
   "k": [
@@ -122,7 +204,16 @@
    "بيع البناء",
    "تحويل الملكيه"
   ],
-  "a": "الضمان رهن من الدرجة الأولى للأرض والبناء لصالح الصندوق، وبيحتفظ الصندوق بأصل سند الرهن. ما بيجوز رهن أو بيع البناء قبل السداد الكامل إلا بموافقة المجلس، وللمجلس نقل إشارة الرهن لعقار آخر بشرط ألا تقل قيمته. كمان بيوقّع المقترض تفويضًا باقتطاع الأقساط من راتبه.<small>[النظام م20 وم21؛ التعليمات المالية م7 وم8]</small>"
+  "a": "الضمان رهن من الدرجة الأولى للأرض والبناء لصالح الصندوق، وبيحتفظ الصندوق بأصل سند الرهن. ما بيجوز رهن أو بيع البناء قبل السداد الكامل إلا بموافقة المجلس، وللمجلس نقل إشارة الرهن لعقار آخر بشرط ألا تقل قيمته. كمان بيوقّع المقترض تفويضًا باقتطاع الأقساط من راتبه.<small>[النظام م20 وم21؛ التعليمات المالية م7 وم8]</small>",
+  "ke": [
+   "guarantee",
+   "collateral",
+   "security",
+   "guarantor",
+   "sell the house",
+   "sell my house"
+  ],
+  "en": "The guarantee is a first-degree mortgage on the land and building in favor of the Fund, which keeps the original mortgage deed. You cannot mortgage or sell the building before full repayment without the Board's approval."
  },
  {
   "k": [
@@ -140,7 +231,21 @@
    "بيت جاهز",
    "اشتري"
   ],
-  "a": "<b>للبناء:</b> 4 دفعات، 25% لكل دفعة حسب نسبة الإنجاز وبينها شهر على الأقل:<ul><li>الأولى: بعد الرهن وتقديم سند التسجيل.</li><li>الثانية: بعد الحفريات والأساسات والقواعد وصب المدّة الأرضية.</li><li>الثالثة: بعد الأعمدة والجدران الخرسانية لمنسوب عقدة الطابق الأرضي.</li><li>الرابعة: بعد باقي أعمال العظم بما فيها العقدات.</li></ul><b>لشراء شقة/بناء جاهز:</b> 4 دفعات شهرية متساوية بعد الرهن. وبتنجز البناء خلال 18 شهرًا من صرف الدفعة الأولى.<small>[الإجراءات المعتمدة؛ التعليمات المالية م9]</small>"
+  "a": "<b>للبناء:</b> 4 دفعات، 25% لكل دفعة حسب نسبة الإنجاز وبينها شهر على الأقل:<ul><li>الأولى: بعد الرهن وتقديم سند التسجيل.</li><li>الثانية: بعد الحفريات والأساسات والقواعد وصب المدّة الأرضية.</li><li>الثالثة: بعد الأعمدة والجدران الخرسانية لمنسوب عقدة الطابق الأرضي.</li><li>الرابعة: بعد باقي أعمال العظم بما فيها العقدات.</li></ul><b>لشراء شقة/بناء جاهز:</b> 4 دفعات شهرية متساوية بعد الرهن. وبتنجز البناء خلال 18 شهرًا من صرف الدفعة الأولى.<small>[الإجراءات المعتمدة؛ التعليمات المالية م9]</small>",
+  "ke": [
+   "disbursement",
+   "disburse",
+   "how is the loan paid",
+   "loan payments",
+   "building loan",
+   "construction",
+   "build a house",
+   "buy an apartment",
+   "ready apartment",
+   "stages",
+   "phases"
+  ],
+  "en": "**Building:** four installments of 25% each, according to progress, at least one month apart: after the mortgage is registered; after excavation, foundations and the ground slab; after the columns and concrete walls up to the ground-floor slab level; and after the remaining structural works including the slabs.\n\n**Buying a ready apartment or building:** four equal monthly installments after the mortgage."
  },
  {
   "k": [
@@ -149,7 +254,16 @@
    "مده البناء",
    "وقت البناء"
   ],
-  "a": "مهلة إنجاز البناء <b>18 شهرًا من تاريخ صرف الدفعة الأولى</b>.<small>[التعليمات المالية م9]</small>"
+  "a": "مهلة إنجاز البناء <b>18 شهرًا من تاريخ صرف الدفعة الأولى</b>.<small>[التعليمات المالية م9]</small>",
+  "ke": [
+   "18 months",
+   "building deadline",
+   "construction deadline",
+   "how long to build",
+   "time to build",
+   "complete the building"
+  ],
+  "en": "The building must be completed within **18 months of the date the first installment is disbursed**."
  },
  {
   "k": [
@@ -162,7 +276,18 @@
    "لجنه فنيه",
    "كشف"
   ],
-  "a": "للبناء: مخططات بناء مرخصة، سند تسجيل الأرض ساري المفعول، مخطط أرض معتمد، مخطط موقع تنظيمي، ورخصة بناء سارية. وللسكن القائم: سند تسجيل الشقة. وبتكشف لجنة فنية على مراحل البناء أو العقار المراد شراؤه.<small>[التعليمات المالية م6؛ عرض 2026]</small>"
+  "a": "للبناء: مخططات بناء مرخصة، سند تسجيل الأرض ساري المفعول، مخطط أرض معتمد، مخطط موقع تنظيمي، ورخصة بناء سارية. وللسكن القائم: سند تسجيل الشقة. وبتكشف لجنة فنية على مراحل البناء أو العقار المراد شراؤه.<small>[التعليمات المالية م6؛ عرض 2026]</small>",
+  "ke": [
+   "documents",
+   "required documents",
+   "paperwork",
+   "papers",
+   "what do i need",
+   "building permit",
+   "title deed",
+   "requirements"
+  ],
+  "en": "For building: licensed building plans, a valid land title deed, an approved land plan, a zoning site plan and a valid building permit. For an existing home: the apartment's title deed. A technical committee inspects the construction stages or the property to be purchased."
  },
  {
   "k": [
@@ -177,7 +302,27 @@
    "اجل اقساط",
    "اجل سداد"
   ],
-  "a": "للمجلس الموافقة على تأجيل أقساط القرض حتى <b>6 أشهر</b> خلال مدة السداد، على أن يتحمل المقترض النفقات الإدارية والتأمين في فترة التأجيل. الطلب بيتقدم إلكترونيًا عبر البوابة وبينعرض على المجلس.<small>[الإجراءات المعتمدة؛ التعليمات المالية م10]</small>"
+  "a": "للمجلس الموافقة على تأجيل أقساط القرض حتى <b>6 أشهر</b> خلال مدة السداد، على أن يتحمل المقترض النفقات الإدارية والتأمين في فترة التأجيل. الطلب بيتقدم إلكترونيًا عبر البوابة وبينعرض على المجلس.<small>[الإجراءات المعتمدة؛ التعليمات المالية م10]</small>",
+  "ke": [
+   "postpone installments",
+   "postpone installment",
+   "defer installment",
+   "delay installment",
+   "postponing installments",
+   "postpone payment",
+   "defer payment",
+   "skip installment",
+   "pause payments",
+   "postpone my installment",
+   "postpone the installment",
+   "postpone my payment",
+   "defer my installment",
+   "delay my installment",
+   "postpone my loan installment",
+   "postpone",
+   "defer"
+  ],
+  "en": "The Board may approve postponing loan installments for up to **6 months** during the repayment period, and the borrower bears the administrative expenses and insurance during the postponement. You apply electronically through the portal."
  },
  {
   "k": [
@@ -192,7 +337,20 @@
    "اجل صرف",
    "اجل الصرف"
   ],
-  "a": "المشترك المستحق للقرض بيقدر يطلب تأجيل الصرف، وبتصير أولويته في الدفعة اللي بعد الدفعة اللي استحق فيها. يجوز التأجيل أكثر من مرة ولمدة غير محددة. بتختار «الاستفادة» أو «تأجيل الصرف» من خيار «الرد على كتاب القرض» في البوابة، وعندك أسبوع من التبليغ لمراجعة الصندوق وإلا بتعتبر مستنكفًا.<small>[التعليمات المالية م13 وم14؛ عرض 2026]</small>"
+  "a": "المشترك المستحق للقرض بيقدر يطلب تأجيل الصرف، وبتصير أولويته في الدفعة اللي بعد الدفعة اللي استحق فيها. يجوز التأجيل أكثر من مرة ولمدة غير محددة. بتختار «الاستفادة» أو «تأجيل الصرف» من خيار «الرد على كتاب القرض» في البوابة، وعندك أسبوع من التبليغ لمراجعة الصندوق وإلا بتعتبر مستنكفًا.<small>[التعليمات المالية م13 وم14؛ عرض 2026]</small>",
+  "ke": [
+   "postpone disbursement",
+   "defer disbursement",
+   "postpone my loan",
+   "delay my loan",
+   "not ready",
+   "reply to loan letter",
+   "postpone the loan",
+   "postpone the disbursement",
+   "postpone my disbursement",
+   "delay the disbursement"
+  ],
+  "en": "An eligible member can request postponing the disbursement of the loan, and their priority moves to the batch after the one they qualified in. This can be done more than once and for an unspecified period. You choose 'Benefit' or 'Postpone disbursement' under 'Reply to the loan letter' in the portal. You have one week from notification to contact the Fund, otherwise you are considered declined."
  },
  {
   "k": [
@@ -202,7 +360,16 @@
    "رفع رهن",
    "تحرير العقار"
   ],
-  "a": "بتقدم طلب رفع الرهن إلكترونيًا عبر البوابة، وبينعرض على المجلس اللي بيوافق بعد التأكد من تسديد القرض كاملًا، وبعدها شعبة الأراضي والعقارات بتنفذ إجراءات الفك.<small>[الإجراءات المعتمدة؛ عرض 2026]</small>"
+  "a": "بتقدم طلب رفع الرهن إلكترونيًا عبر البوابة، وبينعرض على المجلس اللي بيوافق بعد التأكد من تسديد القرض كاملًا، وبعدها شعبة الأراضي والعقارات بتنفذ إجراءات الفك.<small>[الإجراءات المعتمدة؛ عرض 2026]</small>",
+  "ke": [
+   "release mortgage",
+   "lift mortgage",
+   "remove mortgage",
+   "mortgage release",
+   "release the mortgage",
+   "free the property"
+  ],
+  "en": "Submit a mortgage release request electronically through the portal. The Board approves it after confirming the housing loan is fully repaid, then the Lands and Real Estate division carries out the release."
  },
  {
   "k": [
@@ -217,7 +384,18 @@
    "مبكر",
    "اسدد القرض"
   ],
-  "a": "إذا سددت رصيد القرض قبل انتهاء المدة، بيُخصم من المبلغ المستحق ما يقابل النفقات الإدارية وتأمين الحياة عن الفترة المتبقية.<small>[التعليمات المالية م12]</small>"
+  "a": "إذا سددت رصيد القرض قبل انتهاء المدة، بيُخصم من المبلغ المستحق ما يقابل النفقات الإدارية وتأمين الحياة عن الفترة المتبقية.<small>[التعليمات المالية م12]</small>",
+  "ke": [
+   "early repayment",
+   "repay early",
+   "pay off early",
+   "pay early",
+   "settle the loan",
+   "pay off the loan",
+   "full repayment",
+   "early settlement"
+  ],
+  "en": "If you repay the loan balance before the end of the term, the administrative expenses and life insurance for the remaining period are deducted from the amount due."
  },
  {
   "k": [
@@ -236,7 +414,18 @@
    "اسحب",
    "سحب من الصندوق"
   ],
-  "a": "بتقدر توقف اشتراكك وتسحب اشتراكاتك بشرط ما يكون عليك التزام مالي للصندوق، ولا بتطالب بأكثر من رصيد اشتراكاتك. الطلب إلكتروني، بيوصل الدائرة خلال يومين وبيوافق عليه رئيس المجلس بتفويض، وبتعرف بجاهزية الشيك من «طلباتي». لو اشتركت مجددًا بتنحسب أولويتك من تاريخ آخر اشتراك ولا بتحتفظ بأقدميتك السابقة.<small>[النظام م14 وم15؛ التعليمات المالية م16؛ عرض 2026]</small>"
+  "a": "بتقدر توقف اشتراكك وتسحب اشتراكاتك بشرط ما يكون عليك التزام مالي للصندوق، ولا بتطالب بأكثر من رصيد اشتراكاتك. الطلب إلكتروني، بيوصل الدائرة خلال يومين وبيوافق عليه رئيس المجلس بتفويض، وبتعرف بجاهزية الشيك من «طلباتي». لو اشتركت مجددًا بتنحسب أولويتك من تاريخ آخر اشتراك ولا بتحتفظ بأقدميتك السابقة.<small>[النظام م14 وم15؛ التعليمات المالية م16؛ عرض 2026]</small>",
+  "ke": [
+   "withdraw",
+   "withdrawal",
+   "leave the fund",
+   "cancel membership",
+   "refund my contributions",
+   "get my money back",
+   "cancel my subscription",
+   "unsubscribe"
+  ],
+  "en": "You can stop your membership and withdraw your contributions, provided you have no financial obligation to the Fund, and you cannot claim more than your contribution balance. The request is electronic, reaches the office within two days, and is approved by the Board Chair by delegation. You are notified when the cheque is ready under 'My Requests'.\n\nIf you rejoin later, your priority counts from the date of your last subscription and you lose your previous seniority."
  },
  {
   "k": [
@@ -251,7 +440,19 @@
    "قائمه الانتظار",
    "التبليغ"
   ],
-  "a": "القروض بتنمنح حسب أقدمية الاشتراك وأقدمية الخدمة، وفي قائمتان: هيئة التدريس والموظفين، وبيحدد المجلس عدد المستفيدين من كل فئة بحسب مساهمتها. بيتبلغ المستحقون برسالة نصية ولازم يراجعوا الصندوق خلال أسبوع. أما موعد دورك بالتحديد فيعتمد على قرارات المجلس، فبنصحك تسأل الإدارة.<small>[النظام م15 وم16؛ عرض 2026]</small><div class=\"btns\"><a class=\"btn wa\" target=\"_blank\" rel=\"noopener\" href=\"https://wa.me/962787355555\">اسأل الإدارة على واتساب</a></div>"
+  "a": "القروض بتنمنح حسب أقدمية الاشتراك وأقدمية الخدمة، وفي قائمتان: هيئة التدريس والموظفين، وبيحدد المجلس عدد المستفيدين من كل فئة بحسب مساهمتها. بيتبلغ المستحقون برسالة نصية ولازم يراجعوا الصندوق خلال أسبوع. أما موعد دورك بالتحديد فيعتمد على قرارات المجلس، فبنصحك تسأل الإدارة.<small>[النظام م15 وم16؛ عرض 2026]</small><div class=\"btns\"><a class=\"btn wa\" target=\"_blank\" rel=\"noopener\" href=\"https://wa.me/962787355555\">اسأل الإدارة على واتساب</a></div>",
+  "ke": [
+   "priority",
+   "seniority",
+   "waiting list",
+   "how long to wait",
+   "when will i get",
+   "waiting",
+   "queue",
+   "my turn",
+   "turn"
+  ],
+  "en": "Loans are granted by membership seniority and years of service. There are two lists, faculty and staff, and the Board decides how many beneficiaries come from each category based on their contribution. Eligible members are notified by text message and must contact the Fund within a week. For your exact turn, please ask the Fund management."
  },
  {
   "k": [
@@ -260,7 +461,14 @@
    "الموازي",
    "اقرار وتعهد"
   ],
-  "a": "بتنحسب حوافز الموازي ضمن بنود الراتب اللي بنحسب عليها قيمة القرض، مقابل إقرار وتعهد من المقترض بعدم المطالبة بشمولها ضمن الراتب الخاضع للضمان الاجتماعي.<small>[قرار مجلس الإدارة 74/2024 و98/2024؛ رأي قانوني 23/4/2024]</small>"
+  "a": "بتنحسب حوافز الموازي ضمن بنود الراتب اللي بنحسب عليها قيمة القرض، مقابل إقرار وتعهد من المقترض بعدم المطالبة بشمولها ضمن الراتب الخاضع للضمان الاجتماعي.<small>[قرار مجلس الإدارة 74/2024 و98/2024؛ رأي قانوني 23/4/2024]</small>",
+  "ke": [
+   "parallel",
+   "parallel program",
+   "incentives",
+   "parallel incentives"
+  ],
+  "en": "Parallel-program incentives are counted within the salary items used to calculate the loan amount, in exchange for a pledge by the borrower not to claim that they be included in the salary subject to social security."
  },
  {
   "k": [
@@ -273,7 +481,18 @@
    "اترك الجامعه",
    "مكافاه نهايه"
   ],
-  "a": "عند انتهاء الخدمة لبلوغ السن القانونية أو لأسباب صحية بتدفع المتبقي على أقساط شهرية يحددها المجلس. ولأي سبب آخر بتدفع المتبقي نقدًا أو بيُحسم من مستحقاتك في صندوق الادخار ومكافأة نهاية الخدمة، وإن ما كفت بيتقسط الباقي.<small>[النظام م22]</small>"
+  "a": "عند انتهاء الخدمة لبلوغ السن القانونية أو لأسباب صحية بتدفع المتبقي على أقساط شهرية يحددها المجلس. ولأي سبب آخر بتدفع المتبقي نقدًا أو بيُحسم من مستحقاتك في صندوق الادخار ومكافأة نهاية الخدمة، وإن ما كفت بيتقسط الباقي.<small>[النظام م22]</small>",
+  "ke": [
+   "end of service",
+   "retire",
+   "retirement",
+   "resign",
+   "resignation",
+   "leave the university",
+   "terminated",
+   "quit my job"
+  ],
+  "en": "If your service ends at legal retirement age or for health reasons, you pay the remaining balance in monthly installments set by the Board. For any other reason, you pay the rest in cash or it is deducted from your provident fund and end-of-service gratuity, and any remainder is paid in installments."
  },
  {
   "k": [
@@ -284,7 +503,18 @@
    "ما سددت",
    "تاخير الاقساط"
   ],
-  "a": "إذا زاد الإخلال بالسداد على ستة أشهر متتالية أو تكرر ثلاث مرات، بيتم التنفيذ على السكن وأي أموال أخرى تشكل ضمانًا للقرض، وللمجلس اتخاذ الإجراءات القانونية.<small>[النظام م22 وم24]</small>"
+  "a": "إذا زاد الإخلال بالسداد على ستة أشهر متتالية أو تكرر ثلاث مرات، بيتم التنفيذ على السكن وأي أموال أخرى تشكل ضمانًا للقرض، وللمجلس اتخاذ الإجراءات القانونية.<small>[النظام م22 وم24]</small>",
+  "ke": [
+   "late payment",
+   "default",
+   "miss payment",
+   "missed payment",
+   "not pay",
+   "fail to pay",
+   "delay in payment",
+   "penalty"
+  ],
+  "en": "If non-payment exceeds six consecutive months or happens three times, the Fund can enforce against the home and any other assets securing the loan, and the Board can take legal action."
  },
  {
   "k": [
@@ -296,7 +526,17 @@
    "جائز",
    "اسلامي"
   ],
-  "a": "صدرت فتويان من كلية الشريعة (2009 و2025) تجيزان الاشتراك في الصندوق والادخار فيه والاقتراض منه لغايات الإسكان، وأن نظام الصندوق وعقد القرض لا يخالفان الشريعة. والنفقات الإدارية أجور خدمات بدون ربح، والأصل أن يكون التأمين تكافليًا.<small>[فتوى 21/3/2009 و23/8/2025]</small>"
+  "a": "صدرت فتويان من كلية الشريعة (2009 و2025) تجيزان الاشتراك في الصندوق والادخار فيه والاقتراض منه لغايات الإسكان، وأن نظام الصندوق وعقد القرض لا يخالفان الشريعة. والنفقات الإدارية أجور خدمات بدون ربح، والأصل أن يكون التأمين تكافليًا.<small>[فتوى 21/3/2009 و23/8/2025]</small>",
+  "ke": [
+   "fatwa",
+   "halal",
+   "haram",
+   "sharia",
+   "islamic",
+   "permissible",
+   "religious"
+  ],
+  "en": "Two fatwas from the Faculty of Sharia (2009 and 2025) permit joining the Fund, saving with it and borrowing from it for housing, and state that the Fund's regulation and loan contract do not contradict Islamic law. The administrative expenses are service fees without profit."
  },
  {
   "k": [
@@ -307,7 +547,15 @@
    "ادارة الصندوق",
    "امين الصندوق"
   ],
-  "a": "يديره مجلس إدارة من 7 مشتركين بيعينهم مجلس الجامعة لمدة 3 سنوات قابلة للتجديد مرة واحدة، ورئيسه نائب الرئيس للشؤون الإدارية والمالية والتحول الرقمي. بيجتمع مرة شهريًا على الأقل ونصابه 5 أعضاء.<small>[النظام م6 وم8؛ قرار مجلس الجامعة جلسة 2/2026]</small>"
+  "a": "يديره مجلس إدارة من 7 مشتركين بيعينهم مجلس الجامعة لمدة 3 سنوات قابلة للتجديد مرة واحدة، ورئيسه نائب الرئيس للشؤون الإدارية والمالية والتحول الرقمي. بيجتمع مرة شهريًا على الأقل ونصابه 5 أعضاء.<small>[النظام م6 وم8؛ قرار مجلس الجامعة جلسة 2/2026]</small>",
+  "ke": [
+   "board",
+   "board of directors",
+   "who runs",
+   "who manages",
+   "chairman"
+  ],
+  "en": "The Fund is run by a board of seven members appointed by the University Council for three years, renewable once, chaired by the Vice President for Administrative and Financial Affairs and Digital Transformation. It meets at least monthly with a quorum of five."
  },
  {
   "k": [
@@ -315,7 +563,14 @@
    "اجتماع الهيئه",
    "ميزانيه"
   ],
-  "a": "الهيئة العامة هي جميع المشتركين الأردنيين، بتجتمع مرة سنويًا على الأقل في موعد لا يتجاوز نيسان، وبيقدم لها المجلس تقريرًا مفصلًا بالميزانية والخطط في بداية كانون الثاني.<small>[النظام م9 وم10]</small>"
+  "a": "الهيئة العامة هي جميع المشتركين الأردنيين، بتجتمع مرة سنويًا على الأقل في موعد لا يتجاوز نيسان، وبيقدم لها المجلس تقريرًا مفصلًا بالميزانية والخطط في بداية كانون الثاني.<small>[النظام م9 وم10]</small>",
+  "ke": [
+   "general assembly",
+   "annual meeting",
+   "annual report",
+   "budget"
+  ],
+  "en": "The General Assembly is all Jordanian members. It meets at least once a year, no later than April, and the Board presents a detailed report with the budget and plans in January."
  },
  {
   "k": [
@@ -326,7 +581,15 @@
    "كم واحد استفاد",
    "ارقام الصندوق"
   ],
-  "a": "منذ التأسيس: 5,507 مشتركين، والحاليون 2,275 (الجامعة 1,718، مستشفى الجامعة 447، فرع العقبة 93، الصناديق 12، المحطة 5). والمستفيدون من القروض منذ التأسيس 2,514. وفي 2024 انصرف 3,090,945 دينارًا لـ 63 مستفيدًا.<small>[عرض 2026؛ أرقام حتى نهاية 2025]</small>"
+  "a": "منذ التأسيس: 5,507 مشتركين، والحاليون 2,275 (الجامعة 1,718، مستشفى الجامعة 447، فرع العقبة 93، الصناديق 12، المحطة 5). والمستفيدون من القروض منذ التأسيس 2,514. وفي 2024 انصرف 3,090,945 دينارًا لـ 63 مستفيدًا.<small>[عرض 2026؛ أرقام حتى نهاية 2025]</small>",
+  "ke": [
+   "statistics",
+   "how many members",
+   "number of members",
+   "beneficiaries",
+   "how many beneficiaries"
+  ],
+  "en": "Since its founding the Fund has had 5,507 members, and currently has 2,275 (University 1,718, University Hospital 447, Aqaba branch 93, funds 12, the station 5). Loan beneficiaries since founding: 2,514. In 2024, 3,090,945 JD were disbursed to 63 beneficiaries."
  },
  {
   "k": [
@@ -339,7 +602,17 @@
    "اراضي",
    "شقق"
   ],
-  "a": "من مشاريع الصندوق: إسكان المنصور/الجبيهة (188 مشتركًا)، إسكان الجبيهة (48 شقة)، إسكان ياجوز 1 (212 قطعة) وياجوز 2 (68 قطعة)، وإسكان برين (90 مشتركًا).<small>[عرض 2026]</small>"
+  "a": "من مشاريع الصندوق: إسكان المنصور/الجبيهة (188 مشتركًا)، إسكان الجبيهة (48 شقة)، إسكان ياجوز 1 (212 قطعة) وياجوز 2 (68 قطعة)، وإسكان برين (90 مشتركًا).<small>[عرض 2026]</small>",
+  "ke": [
+   "projects",
+   "housing projects",
+   "yajouz",
+   "bareen",
+   "jubaiha",
+   "mansour",
+   "plots"
+  ],
+  "en": "Fund projects include Al-Mansour/Jubaiha housing (188 members), Jubaiha housing (48 apartments), Yajouz 1 (212 plots), Yajouz 2 (68 plots) and Bareen housing (90 members)."
  },
  {
   "k": [
@@ -353,7 +626,17 @@
    "وين اقدم",
    "كيف اوصل"
   ],
-  "a": "كل الطلبات إلكترونية عبر بوابة الصندوق: موقع الجامعة ← موظفو الجامعة ← خدمات إدارية ← صندوق إسكان العاملين، ثم البريد الإلكتروني وكلمة السر. وبتتابع القرارات من «طلباتي».<div class=\"btns\"><a class=\"btn pt\" target=\"_blank\" rel=\"noopener\" href=\"https://webportals.ju.edu.jo/housing/\">افتح البوابة</a></div>"
+  "a": "كل الطلبات إلكترونية عبر بوابة الصندوق: موقع الجامعة ← موظفو الجامعة ← خدمات إدارية ← صندوق إسكان العاملين، ثم البريد الإلكتروني وكلمة السر. وبتتابع القرارات من «طلباتي».<div class=\"btns\"><a class=\"btn pt\" target=\"_blank\" rel=\"noopener\" href=\"https://webportals.ju.edu.jo/housing/\">افتح البوابة</a></div>",
+  "ke": [
+   "portal",
+   "website",
+   "login",
+   "log in",
+   "where to apply",
+   "where do i apply",
+   "my requests"
+  ],
+  "en": "All requests are electronic through the Fund portal: University website, then University Staff, Administrative Services, Employees' Housing Fund, then your email and password. You follow decisions under 'My Requests'."
  },
  {
   "k": [
@@ -366,7 +649,18 @@
    "ادارة الصندوق",
    "مين بحكي"
   ],
-  "a": "بتقدر تتواصل مع إدارة الصندوق على واتساب أو من خلال البوابة.<div class=\"btns\"><a class=\"btn wa\" target=\"_blank\" rel=\"noopener\" href=\"https://wa.me/962787355555\">واتساب الإدارة 0787355555</a><a class=\"btn pt\" target=\"_blank\" rel=\"noopener\" href=\"https://webportals.ju.edu.jo/housing/\">بوابة الصندوق</a></div>"
+  "a": "بتقدر تتواصل مع إدارة الصندوق على واتساب أو من خلال البوابة.<div class=\"btns\"><a class=\"btn wa\" target=\"_blank\" rel=\"noopener\" href=\"https://wa.me/962787355555\">واتساب الإدارة 0787355555</a><a class=\"btn pt\" target=\"_blank\" rel=\"noopener\" href=\"https://webportals.ju.edu.jo/housing/\">بوابة الصندوق</a></div>",
+  "ke": [
+   "contact",
+   "whatsapp",
+   "phone",
+   "call",
+   "speak to",
+   "talk to",
+   "human",
+   "support"
+  ],
+  "en": "You can reach the Fund management on WhatsApp or through the portal."
  },
  {
   "k": [
@@ -380,6 +674,15 @@
    "شو بتقدر",
    "مين انت"
   ],
-  "a": "أهلًا وسهلًا! أنا مساعد صندوق إسكان العاملين في الجامعة الأردنية. اسألني عن الاشتراك، القروض، الدفعات، التأجيل، فك الرهن، أو السداد المبكر."
+  "a": "أهلًا وسهلًا! أنا مساعد صندوق إسكان العاملين في الجامعة الأردنية. اسألني عن الاشتراك، القروض، الدفعات، التأجيل، فك الرهن، أو السداد المبكر.",
+  "ke": [
+   "hello",
+   "hey there",
+   "good morning",
+   "good evening",
+   "what can you do",
+   "who are you"
+  ],
+  "en": "Hello! I'm the University of Jordan Employees' Housing Fund assistant. Ask me about membership, loans, installments, postponement, mortgage release or early repayment."
  }
 ]
