@@ -21,7 +21,7 @@
    "can i subscribe"
   ],
   "en": "Membership is optional for every University of Jordan employee: faculty members and appointed staff, except full-time lecturers and daily-wage workers. It covers the University, the University Hospital and the Aqaba branch.",
-  "say_ar": "الاشتراك اختياري لكل العاملين في الجامعة، من أعضاء هيئة التدريس والموظفين المعيّنين. ويُستثنى المحاضر المتفرغ والعامل بالأجرة اليومية.",
+  "say_ar": "الاشتراك اختياري لكل العاملين بالجامعة، من أعضاء هيئة التدريس والموظفين المعيّنين. بس المحاضر المتفرغ والعامل بالأجرة اليومية ما بيقدروا يشتركوا.",
   "say_en": "Joining is optional for all University employees, faculty and appointed staff. Full-time lecturers and daily-wage workers are not included."
  },
  {
@@ -46,7 +46,7 @@
    "join the fund"
   ],
   "en": "Submit a membership request electronically through the Fund portal. It reaches the Fund office within two days, is activated on the financial system, then goes to the Board for a decision. You can follow the decision under 'My Requests' in the portal.",
-  "say_ar": "قدّم طلب الاشتراك إلكترونيًا من بوابة الصندوق. يصل الطلب خلال يومين، ثم يُعرض على مجلس الإدارة، وتعرف القرار من خانة طلباتي.",
+  "say_ar": "بتقدّم طلب الاشتراك إلكترونيًا من بوابة الصندوق. بيوصل الدائرة خلال يومين، وبعدين بينعرض على مجلس الإدارة، وبتعرف القرار من خانة طلباتي.",
   "say_en": "Submit the membership request on the Fund portal. It reaches the office within two days, then the Board decides, and you can follow it under My Requests."
  },
  {
@@ -67,7 +67,7 @@
    "how much to join"
   ],
   "en": "The membership fee is **20 JD**, paid once and non-refundable.",
-  "say_ar": "بدل الانتساب عشرون دينارًا، يُدفع مرة واحدة ولا يُسترد.",
+  "say_ar": "بدل الانتساب عشرين دينار، بتدفعهم مرة وحدة وما بيرجعوا.",
   "say_en": "The membership fee is twenty dinars, paid once and non-refundable."
  },
  {
@@ -95,7 +95,7 @@
    "4%"
   ],
   "en": "The monthly deduction is **5%** of the gross salary subject to social security for new members from 8 July 2026. Existing members remain at **4%**, since the decision applied only to new members.",
-  "say_ar": "الاقتطاع الشهري خمسة بالمئة للمشتركين الجدد، ابتداءً من الثامن من تموز عام ألفين وستة وعشرين. أما المشتركون القدامى فيبقون على أربعة بالمئة.",
+  "say_ar": "الاقتطاع الشهري خمسة بالمئة للمشتركين الجدد، من تاريخ ثمانية تموز ألفين وستة وعشرين. أما المشتركين القدامى فبضلّوا على أربعة بالمئة.",
   "say_en": "The monthly deduction is five percent for new members, from the eighth of July twenty twenty-six. Existing members stay at four percent."
  },
  {
@@ -132,7 +132,7 @@
    "max loan"
   ],
   "en": "The loan is **four times the annual gross salary**, up to a maximum of **50,000 JD** (it was 30,000 JD before, effective 1 January 2024).",
-  "say_ar": "قيمة القرض أربعة أضعاف الراتب الإجمالي السنوي، وبحدٍّ أقصى خمسون ألف دينار.",
+  "say_ar": "قيمة القرض أربعة أضعاف راتبك الإجمالي السنوي، وبحد أقصى خمسين ألف دينار.",
   "say_en": "The loan is four times your annual gross salary, up to fifty thousand dinars."
  },
  {
@@ -159,7 +159,7 @@
    "how many payments"
   ],
   "en": "Repayment is up to **180 monthly installments (15 years)**. The first installment is due two months after the last disbursement.",
-  "say_ar": "مدة السداد تصل إلى مئة وثمانين قسطًا شهريًا، أي خمس عشرة سنة. ويبدأ القسط الأول بعد شهرين من آخر دفعة.",
+  "say_ar": "بتقدر تسدد على مدة توصل لمئة وثمانين قسط شهري، يعني خمس عشرة سنة. والقسط الأول بيبدأ بعد شهرين من آخر دفعة.",
   "say_en": "You can repay over up to one hundred and eighty monthly installments, which is fifteen years. The first installment is due two months after the last payment."
  },
  {
@@ -187,7 +187,7 @@
    "riba"
   ],
   "en": "Administrative expenses are **3,750 JD**, paid with the installments throughout the loan. According to the Sharia fatwa they only cover the Fund's actual cost, with no profit.",
-  "say_ar": "النفقات الإدارية ثلاثة آلاف وسبعمئة وخمسون دينارًا، وتُسدَّد مع الأقساط. وهي تغطي التكلفة الفعلية فقط، دون أي ربح.",
+  "say_ar": "النفقات الإدارية ثلاثة آلاف وسبعمئة وخمسين دينار، وبتنسدد مع الأقساط. وهي بتغطي التكلفة الفعلية للصندوق بس، بدون أي ربح.",
   "say_en": "The administrative expenses are three thousand seven hundred and fifty dinars, paid with the installments. They only cover the Fund's actual cost, with no profit."
  },
  {
@@ -207,7 +207,7 @@
    "takaful"
   ],
   "en": "The Fund insures borrowers' lives as a group, and the premium is added to the monthly installments. The current rate is **0.160 JD per month for every 1,000 JD** of outstanding balance (for example, a balance of 50,000 JD means 8 JD per month), since October 2024.",
-  "say_ar": "يؤمّن الصندوق على حياة المقترضين، وتُضاف الرسوم إلى القسط الشهري. المعدل الحالي مئة وستون فلسًا شهريًا لكل ألف دينار من رصيد القرض.",
+  "say_ar": "الصندوق بيأمّن على حياة المقترضين، ورسوم التأمين بتنضاف على القسط الشهري. المعدل الحالي مئة وستين فلس بالشهر عن كل ألف دينار من رصيد القرض.",
   "say_en": "The Fund insures borrowers' lives and adds the premium to the monthly installment. The current rate is one hundred and sixty fils a month for every thousand dinars of balance."
  },
  {
@@ -230,7 +230,7 @@
    "sell my house"
   ],
   "en": "The guarantee is a first-degree mortgage on the land and building in favor of the Fund, which keeps the original mortgage deed. You cannot mortgage or sell the building before full repayment without the Board's approval.",
-  "say_ar": "الضمان رهن من الدرجة الأولى للأرض والبناء لصالح الصندوق. ولا يجوز بيع البناء أو رهنه قبل السداد الكامل إلا بموافقة المجلس.",
+  "say_ar": "الضمان رهن من الدرجة الأولى للأرض والبناء لصالح الصندوق. وما بتقدر تبيع البناء أو ترهنه قبل ما تسدد القرض كامل، إلا بموافقة المجلس.",
   "say_en": "The guarantee is a first-degree mortgage on the land and building in favor of the Fund. You can't sell or mortgage the building before full repayment without Board approval."
  },
  {
@@ -264,7 +264,7 @@
    "phases"
   ],
   "en": "**Building:** four installments of 25% each, according to progress, at least one month apart: after the mortgage is registered; after excavation, foundations and the ground slab; after the columns and concrete walls up to the ground-floor slab level; and after the remaining structural works including the slabs.\n\n**Buying a ready apartment or building:** four equal monthly installments after the mortgage.",
-  "say_ar": "في البناء يُصرف القرض على أربع دفعات، خمسة وعشرون بالمئة لكل دفعة حسب نسبة الإنجاز، وبين كل دفعة وأخرى شهر على الأقل. وفي شراء شقة جاهزة تُصرف أربع دفعات شهرية متساوية بعد الرهن.",
+  "say_ar": "بالبناء، القرض بينصرف على أربع دفعات، كل دفعة خمسة وعشرين بالمئة حسب نسبة الإنجاز، وبين كل دفعة والثانية شهر على الأقل. وبشراء شقة جاهزة، بتنصرف أربع دفعات شهرية متساوية بعد الرهن.",
   "say_en": "For building, the loan is paid in four installments of twenty-five percent each, according to progress, at least a month apart. For buying a ready apartment, it is four equal monthly installments after the mortgage."
  },
  {
@@ -284,7 +284,7 @@
    "complete the building"
   ],
   "en": "The building must be completed within **18 months of the date the first installment is disbursed**.",
-  "say_ar": "يجب إنجاز البناء خلال ثمانية عشر شهرًا من تاريخ صرف الدفعة الأولى.",
+  "say_ar": "لازم تنجز البناء خلال ثمانية عشر شهر من تاريخ صرف الدفعة الأولى.",
   "say_en": "The building must be completed within eighteen months of the first payment."
  },
  {
@@ -310,7 +310,7 @@
    "requirements"
   ],
   "en": "For building: licensed building plans, a valid land title deed, an approved land plan, a zoning site plan and a valid building permit. For an existing home: the apartment's title deed. A technical committee inspects the construction stages or the property to be purchased.",
-  "say_ar": "للبناء تحتاج إلى مخططات مرخصة، وسند تسجيل الأرض، والمخطط التنظيمي للموقع، ورخصة بناء سارية. وللسكن القائم تحتاج إلى سند تسجيل الشقة.",
+  "say_ar": "للبناء بتحتاج مخططات مرخصة، وسند تسجيل الأرض، ومخطط الموقع التنظيمي، ورخصة بناء سارية. وللسكن القائم بتحتاج سند تسجيل الشقة.",
   "say_en": "For building you need licensed plans, the land title deed, the zoning site plan, and a valid building permit. For an existing home you need the apartment's title deed."
  },
  {
@@ -347,7 +347,7 @@
    "defer"
   ],
   "en": "The Board may approve postponing loan installments for up to **6 months** during the repayment period, and the borrower bears the administrative expenses and insurance during the postponement. You apply electronically through the portal.",
-  "say_ar": "يمكن للمجلس الموافقة على تأجيل الأقساط حتى ستة أشهر، على أن تتحمل النفقات الإدارية والتأمين خلال فترة التأجيل. قدّم الطلب من البوابة.",
+  "say_ar": "المجلس بيقدر يوافق على تأجيل الأقساط لحد ستة أشهر، بس بتتحمل النفقات الإدارية والتأمين خلال فترة التأجيل. قدّم الطلب من البوابة.",
   "say_en": "The Board can approve postponing your installments for up to six months, while you cover the administrative expenses and insurance during that time. Apply through the portal."
  },
  {
@@ -377,7 +377,7 @@
    "delay the disbursement"
   ],
   "en": "An eligible member can request postponing the disbursement of the loan, and their priority moves to the batch after the one they qualified in. This can be done more than once and for an unspecified period. You choose 'Benefit' or 'Postpone disbursement' under 'Reply to the loan letter' in the portal. You have one week from notification to contact the Fund, otherwise you are considered declined.",
-  "say_ar": "يمكنك طلب تأجيل صرف القرض، فتنتقل أولويتك إلى الدفعة التالية، ويجوز ذلك أكثر من مرة. وبعد التبليغ لديك أسبوع لمراجعة الصندوق، وإلا تُعتبر مستنكفًا.",
+  "say_ar": "بتقدر تطلب تأجيل صرف القرض، وبتصير أولويتك بالدفعة اللي بعدها، وبيجوز هيك أكتر من مرة. وبعد التبليغ عندك أسبوع تراجع الصندوق، وإلا بتنعتبر مستنكف.",
   "say_en": "You can ask to postpone the loan payout, and your priority moves to the next batch, as many times as you like. After being notified you have one week to contact the Fund, otherwise you are treated as declined."
  },
  {
@@ -398,7 +398,7 @@
    "free the property"
   ],
   "en": "Submit a mortgage release request electronically through the portal. The Board approves it after confirming the housing loan is fully repaid, then the Lands and Real Estate division carries out the release.",
-  "say_ar": "قدّم طلب فك الرهن من البوابة. يوافق المجلس بعد التأكد من سداد القرض كاملًا، ثم تنفذ شعبة الأراضي إجراءات الفك.",
+  "say_ar": "قدّم طلب فك الرهن من البوابة. المجلس بيوافق بعد ما يتأكد إنك سددت القرض كامل، وبعدها شعبة الأراضي بتنفذ إجراءات الفك.",
   "say_en": "Submit a mortgage release request on the portal. The Board approves it once the loan is fully repaid, then the Lands division completes the release."
  },
  {
@@ -426,7 +426,7 @@
    "early settlement"
   ],
   "en": "If you repay the loan balance before the end of the term, the administrative expenses and life insurance for the remaining period are deducted from the amount due.",
-  "say_ar": "عند السداد المبكر يُخصم من المبلغ المستحق ما يقابل النفقات الإدارية والتأمين عن المدة المتبقية.",
+  "say_ar": "إذا سددت القرض بشكل مبكر، بيتخصم من المبلغ المستحق النفقات الإدارية والتأمين عن المدة المتبقية.",
   "say_en": "If you repay early, the administrative expenses and insurance for the remaining period are deducted from what you owe."
  },
  {
@@ -458,7 +458,7 @@
    "unsubscribe"
   ],
   "en": "You can stop your membership and withdraw your contributions, provided you have no financial obligation to the Fund, and you cannot claim more than your contribution balance. The request is electronic, reaches the office within two days, and is approved by the Board Chair by delegation. You are notified when the cheque is ready under 'My Requests'.\n\nIf you rejoin later, your priority counts from the date of your last subscription and you lose your previous seniority.",
-  "say_ar": "يمكنك الانسحاب وسحب اشتراكاتك بشرط ألا يكون عليك التزام مالي للصندوق. وإذا عدت للاشتراك لاحقًا، تُحسب أولويتك من تاريخ آخر اشتراك وتفقد أقدميتك السابقة.",
+  "say_ar": "بتقدر تنسحب وتسحب اشتراكاتك، بشرط ما يكون عليك التزام مالي للصندوق. وإذا رجعت اشتركت بعدين، أولويتك بتنحسب من تاريخ آخر اشتراك وبتخسر أقدميتك السابقة.",
   "say_en": "You can withdraw and take back your contributions as long as you owe the Fund nothing. If you rejoin later, your priority starts from your last subscription and you lose your earlier seniority."
  },
  {
@@ -487,7 +487,7 @@
    "turn"
   ],
   "en": "Loans are granted by membership seniority and years of service. There are two lists, faculty and staff, and the Board decides how many beneficiaries come from each category based on their contribution. Eligible members are notified by text message and must contact the Fund within a week. For your exact turn, please ask the Fund management.",
-  "say_ar": "تُمنح القروض حسب أقدمية الاشتراك وأقدمية الخدمة، وهناك قائمتان: هيئة التدريس والموظفون. أما موعد دورك بالتحديد فاسأل إدارة الصندوق.",
+  "say_ar": "القروض بتنعطى حسب أقدمية الاشتراك وأقدمية الخدمة، وفي قائمتين: هيئة التدريس والموظفين. أما دورك بالتحديد، فاسأل إدارة الصندوق.",
   "say_en": "Loans are given by membership and service seniority, with two lists: faculty and staff. For your exact turn, please ask the Fund management."
  },
  {
@@ -505,7 +505,7 @@
    "parallel incentives"
   ],
   "en": "Parallel-program incentives are counted within the salary items used to calculate the loan amount, in exchange for a pledge by the borrower not to claim that they be included in the salary subject to social security.",
-  "say_ar": "تُحتسب حوافز الموازي ضمن الراتب المعتمد للقرض، مقابل تعهد منك بعدم المطالبة بإدخالها في الراتب الخاضع للضمان الاجتماعي.",
+  "say_ar": "حوافز الموازي بتنحسب ضمن الراتب اللي بيتحدد عليه القرض، مقابل تعهد منك إنك ما تطالب بإدخالها بالراتب الخاضع للضمان الاجتماعي.",
   "say_en": "Parallel-program incentives count toward the salary used for your loan, in exchange for a pledge not to ask for them to be included in your social security salary."
  },
  {
@@ -531,7 +531,7 @@
    "quit my job"
   ],
   "en": "If your service ends at legal retirement age or for health reasons, you pay the remaining balance in monthly installments set by the Board. For any other reason, you pay the rest in cash or it is deducted from your provident fund and end-of-service gratuity, and any remainder is paid in installments.",
-  "say_ar": "عند انتهاء الخدمة ببلوغ السن القانونية أو لأسباب صحية، تسدد الباقي بأقساط شهرية يحددها المجلس. ولأي سبب آخر يُسدَّد نقدًا أو يُخصم من مستحقاتك.",
+  "say_ar": "إذا انتهت خدمتك لبلوغ السن القانونية أو لأسباب صحية، بتسدد الباقي بأقساط شهرية بيحددها المجلس. ولأي سبب ثاني، بتدفع الباقي نقدًا أو بيتخصم من مستحقاتك.",
   "say_en": "If your service ends at retirement age or for health reasons, you repay the rest in monthly installments set by the Board. For any other reason it is paid in cash or deducted from your dues."
  },
  {
@@ -555,7 +555,7 @@
    "penalty"
   ],
   "en": "If non-payment exceeds six consecutive months or happens three times, the Fund can enforce against the home and any other assets securing the loan, and the Board can take legal action.",
-  "say_ar": "إذا زاد التأخر عن ستة أشهر متتالية، أو تكرر ثلاث مرات، يحق للصندوق التنفيذ على السكن وسائر الضمانات واتخاذ الإجراءات القانونية.",
+  "say_ar": "إذا تأخرت أكتر من ستة أشهر متتالية، أو تكرر التأخير ثلاث مرات، من حق الصندوق ينفّذ على السكن وباقي الضمانات ويتخذ الإجراءات القانونية.",
   "say_en": "If you are late for more than six months in a row, or three times, the Fund can enforce against the home and take legal action."
  },
  {
@@ -579,7 +579,7 @@
    "religious"
   ],
   "en": "Two fatwas from the Faculty of Sharia (2009 and 2025) permit joining the Fund, saving with it and borrowing from it for housing, and state that the Fund's regulation and loan contract do not contradict Islamic law. The administrative expenses are service fees without profit.",
-  "say_ar": "صدرت فتويان من كلية الشريعة تجيزان الاشتراك في الصندوق والاقتراض منه لغايات الإسكان. والنفقات الإدارية أجور خدمة دون ربح.",
+  "say_ar": "صدرت فتويين من كلية الشريعة بتجيزوا الاشتراك بالصندوق والاقتراض منه لغايات الإسكان. والنفقات الإدارية أجور خدمة بدون ربح.",
   "say_en": "Two fatwas from the Faculty of Sharia permit joining the Fund and borrowing from it for housing. The administrative expenses are service fees with no profit."
  },
  {
@@ -600,7 +600,7 @@
    "chairman"
   ],
   "en": "The Fund is run by a board of seven members appointed by the University Council for three years, renewable once, chaired by the Vice President for Administrative and Financial Affairs and Digital Transformation. It meets at least monthly with a quorum of five.",
-  "say_ar": "يدير الصندوق مجلس إدارة من سبعة مشتركين لمدة ثلاث سنوات، ويرأسه نائب الرئيس للشؤون الإدارية والمالية. ويجتمع مرة في الشهر على الأقل.",
+  "say_ar": "الصندوق بيديره مجلس إدارة من سبعة مشتركين لمدة ثلاث سنوات، ورئيسه نائب الرئيس للشؤون الإدارية والمالية. وبيجتمع مرة بالشهر على الأقل.",
   "say_en": "The Fund is run by a seven-member board for three years, chaired by the Vice President for Administrative and Financial Affairs. It meets at least once a month."
  },
  {
@@ -617,7 +617,7 @@
    "budget"
   ],
   "en": "The General Assembly is all Jordanian members. It meets at least once a year, no later than April, and the Board presents a detailed report with the budget and plans in January.",
-  "say_ar": "الهيئة العامة هي جميع المشتركين الأردنيين، وتجتمع مرة في السنة على الأقل، في موعد لا يتجاوز نيسان.",
+  "say_ar": "الهيئة العامة هي كل المشتركين الأردنيين، وبتجتمع مرة بالسنة على الأقل، وقبل نهاية نيسان.",
   "say_en": "The General Assembly is all Jordanian members, and it meets at least once a year, no later than April."
  },
  {
@@ -638,7 +638,7 @@
    "how many beneficiaries"
   ],
   "en": "Since its founding the Fund has had 5,507 members, and currently has 2,275 (University 1,718, University Hospital 447, Aqaba branch 93, funds 12, the station 5). Loan beneficiaries since founding: 2,514. In 2024, 3,090,945 JD were disbursed to 63 beneficiaries.",
-  "say_ar": "منذ التأسيس اشترك في الصندوق خمسة آلاف وخمسمئة وسبعة أشخاص، والمشتركون الحاليون ألفان ومئتان وخمسة وسبعون. واستفاد من القروض ألفان وخمسمئة وأربعة عشر مشتركًا.",
+  "say_ar": "من التأسيس اشترك بالصندوق خمسة آلاف وخمسمئة وسبعة أشخاص، والمشتركين الحاليين ألفين ومئتين وخمسة وسبعين. واستفاد من القروض ألفين وخمسمئة وأربعة عشر مشترك.",
   "say_en": "Since the start, five thousand five hundred and seven people have joined, with two thousand two hundred and seventy-five current members, and two thousand five hundred and fourteen have received loans."
  },
  {
@@ -689,7 +689,7 @@
    "my requests"
   ],
   "en": "All requests are electronic through the Fund portal: University website, then University Staff, Administrative Services, Employees' Housing Fund, then your email and password. You follow decisions under 'My Requests'.",
-  "say_ar": "تُقدَّم جميع الطلبات من بوابة الصندوق عبر موقع الجامعة، من قسم موظفو الجامعة ثم خدمات إدارية. وتتابع القرارات من خانة طلباتي.",
+  "say_ar": "كل الطلبات بتتقدم من بوابة الصندوق عن طريق موقع الجامعة، من قسم موظفو الجامعة وبعدين خدمات إدارية. وبتتابع القرارات من خانة طلباتي.",
   "say_en": "All requests go through the Fund portal on the University website, under University Staff, then Administrative Services. You follow decisions under My Requests."
  },
  {
@@ -715,7 +715,7 @@
    "support"
   ],
   "en": "You can reach the Fund management on WhatsApp or through the portal.",
-  "say_ar": "يمكنك التواصل مع إدارة الصندوق عبر واتساب أو من خلال البوابة، والروابط أمامك على الشاشة.",
+  "say_ar": "بتقدر تتواصل مع إدارة الصندوق على واتساب أو من خلال البوابة، والروابط قدامك على الشاشة.",
   "say_en": "You can reach the Fund management on WhatsApp or through the portal. The links are on your screen."
  },
  {
@@ -740,7 +740,7 @@
    "who are you"
   ],
   "en": "Hello! I'm the University of Jordan Employees' Housing Fund assistant. Ask me about membership, loans, installments, postponement, mortgage release or early repayment.",
-  "say_ar": "أهلًا بك! أنا مساعد صندوق إسكان العاملين. اسألني عن الاشتراك أو القروض أو التأجيل أو فك الرهن.",
+  "say_ar": "أهلًا فيك! أنا مساعد صندوق إسكان العاملين. اسألني عن الاشتراك، القروض، التأجيل أو فك الرهن.",
   "say_en": "Hello! I'm the Employees' Housing Fund assistant. Ask me about membership, loans, postponement or mortgage release."
  }
 ]

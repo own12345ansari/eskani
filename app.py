@@ -11,9 +11,9 @@ WA = "https://wa.me/962787355555"
 PT = "https://webportals.ju.edu.jo/housing/"
 
 WELCOME = "أهلًا فيك! أنا مساعد صندوق إسكان العاملين في الجامعة الأردنية. اسألني بصوتك أو اكتب سؤالك عن الاشتراك، القروض، الدفعات، التأجيل، فك الرهن أو السداد المبكر."
-SAY_NO_AR = "لم أجد هذه المعلومة في دليل الصندوق. يمكنك التواصل مع الإدارة عبر واتساب أو من خلال البوابة."
+SAY_NO_AR = "ما لقيت هاي المعلومة بدليل الصندوق. بتقدر تتواصل مع الإدارة على واتساب أو من خلال البوابة."
 SAY_NO_EN = "I couldn't find that in the Fund guide. You can contact the management on WhatsApp or through the portal."
-AR_VOICE = "ar-SA-HamedNeural"  # بدائل رجالية: ar-JO-TaimNeural (أردني)، ar-EG-ShakirNeural
+AR_VOICES = [("ar-JO-TaimNeural", "طيم"), ("ar-SY-LaithNeural", "ليث"), ("ar-SA-HamedNeural", "حامد")]  # أصوات رجالية
 EN_VOICE = "en-US-GuyNeural"
 NO_ANSWER_EN = "I couldn't find that in the Fund guide. You can contact the Fund management directly or check the Fund portal."
 AR = re.compile(r"[\u0600-\u06FF]")
@@ -36,7 +36,7 @@ MIC_JS = r'''<script>
  @keyframes hfp{50%{box-shadow:0 0 0 9px rgba(201,162,74,.28)}}
  @media (prefers-reduced-motion:reduce){.hf-mic.rec{animation:none}}
  .hf-lang{border:1px solid #C9A24A;background:#fff;color:#0B2A5C;border-radius:999px;font:700 .72rem sans-serif;padding:5px 9px;cursor:pointer;min-height:30px}
- .hf-corner{position:fixed;left:14px;bottom:8px;font:500 .75rem 'Noto Sans Arabic',sans-serif;color:#475569;z-index:50;pointer-events:none}
+ .hf-corner{position:fixed;left:50%;transform:translateX(-50%);bottom:8px;white-space:nowrap;font:500 .75rem 'Noto Sans Arabic',sans-serif;color:#475569;z-index:50;pointer-events:none}
  `;
  doc.head.appendChild(css);
  var corner=doc.createElement('div'); corner.className='hf-corner'; corner.textContent='اسأل بصوتك · Ask by voice'; doc.body.appendChild(corner);
@@ -87,7 +87,7 @@ st.markdown("""
 :root{--navy:#0B2A5C;--navy-d:#071A3D;--gold:#C9A24A;--bg:#F5F7FB;--card:#FFFFFF;--txt:#0F172A;--mut:#475569;--bd:#E2E8F0}
 html,body,.stApp,[data-testid="stAppViewContainer"]{direction:rtl;font-family:'Noto Sans Arabic','Segoe UI',Tahoma,sans-serif!important;background:var(--bg)}
 header[data-testid="stHeader"],[data-testid="stToolbar"],[data-testid="stDecoration"],[data-testid="stStatusWidget"],#MainMenu,footer,.stDeployButton,[data-testid="stAppDeployButton"]{display:none!important;visibility:hidden!important;height:0!important}
-.block-container{max-width:780px;padding:1.2rem 1rem 7rem!important}
+.block-container{max-width:780px;padding:3.6rem 1rem 7rem!important}
 .hero{text-align:center;padding:.5rem 0 1rem}
 .hero img{width:92px;height:auto;filter:drop-shadow(0 6px 14px rgba(11,42,92,.25))}
 .hero h1{font-size:1.55rem;font-weight:700;color:var(--navy);margin:.6rem 0 .2rem;padding:0}
@@ -124,6 +124,12 @@ div.stButton>button:focus-visible,a:focus-visible{outline:3px solid var(--gold)!
 [data-testid="stAudio"] audio,audio{height:36px;width:100%;max-width:340px}
 .stRadio label,.stToggle label{font-family:inherit}
 .block-container{position:relative;isolation:isolate;background:transparent!important}
+.toplinks{position:fixed;top:10px;left:12px;display:flex;gap:8px;z-index:60}
+.toplinks a{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;min-height:36px;border:1px solid #0B2A5C;border-radius:999px;background:#fff;color:#0B2A5C!important;font-size:.82rem;font-weight:500;text-decoration:none!important;transition:all .2s ease}
+.toplinks a:hover{background:#FFF9E8;border-color:#C9A24A}
+.toplinks svg{width:16px;height:16px}
+.st-key-vc{position:fixed!important;left:12px;bottom:6px;z-index:60;display:flex;flex-direction:row!important;gap:8px!important;width:auto!important}
+.st-key-vc button{min-height:34px;font-size:.78rem;padding:2px 12px}
 .bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .bgfx:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 85% 8%,rgba(201,162,74,.13),transparent 70%),radial-gradient(700px 500px at 8% 95%,rgba(11,42,92,.10),transparent 70%)}
 .pt{position:absolute;bottom:-40px;border-radius:50%;opacity:0;animation:rise linear infinite}
@@ -197,7 +203,7 @@ def tokens(text):
 
 def link_buttons(links, lang="ar"):
     cols = st.columns(len(links) + 1)
-    wa = "WhatsApp 0787355555" if lang == "en" else "واتساب الإدارة 0787355555"
+    wa = "WhatsApp" if lang == "en" else "واتساب الإدارة"
     pt = "Fund portal" if lang == "en" else "بوابة الصندوق"
     if "wa" in links:
         cols[0].link_button(wa, WA, icon=":material/chat:")
@@ -217,7 +223,7 @@ def spoken(md, lang):
 
 
 def tts(text, lang):
-    voice = AR_VOICE if lang == "ar" else EN_VOICE
+    voice = AR_VOICES[st.session_state.get("voice_idx", 0) % len(AR_VOICES)][0] if lang == "ar" else EN_VOICE
     try:
         import asyncio
         import edge_tts
@@ -264,6 +270,11 @@ img = f'<img src="data:image/png;base64,{logo_b64()}" alt="شعار صندوق �
 st.markdown(f'<div class="hero">{img}<h1>مساعد صندوق إسكان العاملين</h1>'
             '<p>الجامعة الأردنية</p><div class="rule"></div></div>', unsafe_allow_html=True)
 
+_ic1 = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.2A8 8 0 1 1 21 12z"/></svg>'
+_ic2 = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7M10 14 21 3M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>'
+st.markdown(f'<div class="toplinks"><a href="{WA}" target="_blank" rel="noopener">{_ic1}واتساب الإدارة</a>'
+            f'<a href="{PT}" target="_blank" rel="noopener">{_ic2}بوابة الصندوق</a></div>', unsafe_allow_html=True)
+
 if len(ss.msgs) <= 1 and not ss.pending:
     cols = st.columns(2)
     for i, q in enumerate(QUICK):
@@ -307,15 +318,18 @@ if ss.pending:
 ss.setdefault("voice_on", True)
 _on = "background:#0B2A5C!important;color:#fff!important;border-color:#0B2A5C!important"
 st.markdown("<style>" + (f".st-key-voice_btn button{{{_on}}}" if ss.voice_on else "") + "</style>", unsafe_allow_html=True)
-vc = st.columns([2, 3])[0]
-if vc.button("الرد الصوتي: " + ("مفعّل" if ss.voice_on else "متوقف"), key="voice_btn", use_container_width=True,
-             icon=":material/volume_up:" if ss.voice_on else ":material/volume_off:"):
-    ss.voice_on = not ss.voice_on
-    st.rerun()
+ss.setdefault("voice_idx", 0)
+with st.container(key="vc"):
+    if st.button("الرد الصوتي: " + ("مفعّل" if ss.voice_on else "متوقف"), key="voice_btn",
+                 icon=":material/volume_up:" if ss.voice_on else ":material/volume_off:"):
+        ss.voice_on = not ss.voice_on
+        st.rerun()
+    if st.button("الصوت: " + AR_VOICES[ss.voice_idx % len(AR_VOICES)][1], key="voice_pick", icon=":material/record_voice_over:"):
+        ss.voice_idx = (ss.voice_idx + 1) % len(AR_VOICES)
+        st.rerun()
 components.html(MIC_JS, height=0)
 
 if prompt := st.chat_input("اكتب سؤالك أو اضغط على الميكروفون… · Type or tap the mic"):
     ss.pending = prompt
     st.rerun()
 
-link_buttons(["wa", "pt"])
