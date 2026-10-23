@@ -10,6 +10,10 @@ WA = "https://wa.me/962787355555"
 PT = "https://webportals.ju.edu.jo/housing/"
 
 WELCOME = "أهلًا فيك! أنا مساعد صندوق إسكان العاملين في الجامعة الأردنية. اسألني بصوتك أو اكتب سؤالك عن الاشتراك، القروض، الدفعات، التأجيل، فك الرهن أو السداد المبكر."
+SAY_NO_AR = "لم أجد هذه المعلومة في دليل الصندوق. يمكنك التواصل مع الإدارة عبر واتساب أو من خلال البوابة."
+SAY_NO_EN = "I couldn't find that in the Fund guide. You can contact the management on WhatsApp or through the portal."
+AR_VOICE = "ar-SA-HamedNeural"  # بدائل رجالية: ar-JO-TaimNeural (أردني)، ar-EG-ShakirNeural
+EN_VOICE = "en-US-GuyNeural"
 NO_ANSWER_EN = "I couldn't find that in the Fund guide. You can contact the Fund management directly or check the Fund portal."
 AR = re.compile(r"[\u0600-\u06FF]")
 NO_ANSWER = "ما لقيت هاي المعلومة في دليل الصندوق. بتقدر تتواصل مع إدارة الصندوق مباشرة أو تراجع بوابة الصندوق الإلكترونية."
@@ -64,7 +68,6 @@ div.stButton>button:focus-visible,a:focus-visible{outline:3px solid var(--gold)!
 [data-testid="stChatInput"] button:disabled{background:#CBD5E1!important}
 [data-testid="stChatInput"] textarea{caret-color:var(--navy)}
 [data-testid="stAudioInput"]{filter:hue-rotate(205deg) saturate(1.3)}
-[data-testid="stRadio"],[data-testid="stToggle"]{filter:hue-rotate(205deg) saturate(1.2) brightness(.7)}
 [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"]{flex:0 1 auto!important;width:fit-content!important}
 [data-testid="stAudio"] audio,audio{height:36px;width:100%;max-width:340px}
 .stRadio label,.stToggle label{font-family:inherit}
@@ -126,8 +129,8 @@ def answer(q, lang):
             best, score = e, sc
     if best and score >= 4:
         ar_md, links = to_md(best["a"])
-        return (best["en"] if lang == "en" else ar_md), links
-    return (NO_ANSWER_EN if lang == "en" else NO_ANSWER), ["wa", "pt"]
+        return (best["en"] if lang == "en" else ar_md), links, best["say_en" if lang == "en" else "say_ar"]
+    return ((NO_ANSWER_EN, ["wa", "pt"], SAY_NO_EN) if lang == "en" else (NO_ANSWER, ["wa", "pt"], SAY_NO_AR))
 
 
 def wrap(t, lang):
@@ -162,14 +165,14 @@ def spoken(md, lang):
 
 
 def tts(text, lang):
-    voice = "ar-JO-TaimNeural" if lang == "ar" else "en-US-GuyNeural"
+    voice = AR_VOICE if lang == "ar" else EN_VOICE
     try:
         import asyncio
         import edge_tts
 
         async def run():
             buf = b""
-            async for c in edge_tts.Communicate(text, voice, rate="-4%").stream():
+            async for c in edge_tts.Communicate(text, voice, rate="-6%").stream():
                 if c["type"] == "audio":
                     buf += c["data"]
             return buf
@@ -180,16 +183,16 @@ def tts(text, lang):
         finally:
             loop.close()
         if data:
-            return data
+            return data, "edge"
     except Exception:
         pass
     try:
         from gtts import gTTS
         b = io.BytesIO()
         gTTS(text=text, lang=lang).write_to_fp(b)
-        return b.getvalue()
+        return b.getvalue(), "gtts"
     except Exception:
-        return None
+        return None, None
 
 
 def transcribe(wav, code):
@@ -228,16 +231,18 @@ if ss.pending:
     lang = "ar" if AR.search(q) else "en"
     with st.chat_message("user"):
         st.markdown(wrap(html.escape(q), lang), unsafe_allow_html=True)
-    text, links = answer(q, lang)
+    text, links, say = answer(q, lang)
     with st.chat_message("assistant", avatar=LOGO_PATH):
         box = st.empty()
         box.markdown('<div class="typing"><span></span><span></span><span></span></div>', unsafe_allow_html=True)
-        audio = tts(spoken(text, lang), lang) if ss.get("voice_on", True) else None
+        audio, engine = tts(say, lang) if ss.get("voice_on", True) else (None, None)
         if audio is None:
             time.sleep(0.6)
         box.empty()
         if audio:
             st.audio(audio, format="audio/mp3", autoplay=True)
+            if engine == "gtts":
+                st.caption("الصوت الاحتياطي مفعّل (الجودة أقل من المعتاد)")
         out, acc = st.empty(), ""
         for tok in tokens(text):
             acc += tok
@@ -251,9 +256,22 @@ if ss.pending:
 st.markdown('<div class="voice-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
             'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/>'
             '<path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>اسأل بصوتك · Ask by voice</div>', unsafe_allow_html=True)
-o1, o2 = st.columns(2)
-mic_lang = o1.radio("لغة الكلام / Speech language", ["العربية", "English"], horizontal=True, key="mic_lang")
-o2.toggle("الرد الصوتي · Voice reply", value=True, key="voice_on")
+ss.setdefault("mic_lang", "ar")
+ss.setdefault("voice_on", True)
+_on = "background:#0B2A5C!important;color:#fff!important;border-color:#0B2A5C!important"
+st.markdown(f"<style>.st-key-lang_{ss.mic_lang} button{{{_on}}}"
+            + (f".st-key-voice_btn button{{{_on}}}" if ss.voice_on else "") + "</style>", unsafe_allow_html=True)
+c1, c2, c3 = st.columns([1, 1, 2])
+if c1.button("العربية", key="lang_ar", use_container_width=True):
+    ss.mic_lang = "ar"
+    st.rerun()
+if c2.button("English", key="lang_en", use_container_width=True):
+    ss.mic_lang = "en"
+    st.rerun()
+if c3.button("الرد الصوتي: " + ("مفعّل" if ss.voice_on else "متوقف"), key="voice_btn", use_container_width=True,
+             icon=":material/volume_up:" if ss.voice_on else ":material/volume_off:"):
+    ss.voice_on = not ss.voice_on
+    st.rerun()
 audio_in = st.audio_input("اضغط على الميكروفون وتحدث، ثم اضغط إيقاف · Record, then stop", key=f"mic{ss.akey}")
 if audio_in is not None:
     data = audio_in.getvalue()
@@ -262,7 +280,7 @@ if audio_in is not None:
         ss.last_audio = h
         try:
             with st.spinner("عم بسمعك…"):
-                ss.pending = transcribe(data, "ar-JO" if mic_lang == "العربية" else "en-US")
+                ss.pending = transcribe(data, "ar-JO" if ss.mic_lang == "ar" else "en-US")
             ss.akey += 1
             st.rerun()
         except Exception as ex:
