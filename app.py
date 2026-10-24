@@ -13,8 +13,12 @@ PT = "https://webportals.ju.edu.jo/housing/"
 WELCOME = "أهلًا فيك! أنا مساعد صندوق إسكان العاملين في الجامعة الأردنية. اسألني بصوتك أو اكتب سؤالك عن الاشتراك، القروض، الدفعات، التأجيل، فك الرهن أو السداد المبكر."
 SAY_NO_AR = "ما لقيت هاي المعلومة بدليل الصندوق. بتقدر تتواصل مع الإدارة على واتساب أو من خلال البوابة."
 SAY_NO_EN = "I couldn't find that in the Fund guide. You can contact the management on WhatsApp or through the portal."
-AR_VOICES = [("ar-JO-TaimNeural", "طيم"), ("ar-SY-LaithNeural", "ليث"), ("ar-SA-HamedNeural", "حامد")]  # أصوات رجالية
-EN_VOICE = "en-US-GuyNeural"
+AR_VOICES = [("ar-JO-TaimNeural", "طيم"), ("ar-SY-LaithNeural", "ليث"), ("ar-SA-HamedNeural", "حامد"),
+             ("ar-EG-ShakirNeural", "شاكر"), ("ar-AE-HamdanNeural", "حمدان"),
+             ("en-US-AndrewMultilingualNeural", "أندرو (تجريبي)"), ("en-US-BrianMultilingualNeural", "براين (تجريبي)")]
+RATES = [("بطيء", "-14%"), ("هادئ", "-6%"), ("عادي", "+0%")]
+PRON = {"الجبيهة": "الجُبَيْهَة", "ياجوز": "يَاجُوز"}  # أضف هنا الكلمات التي تُنطق خطأ: "الكلمة": "الكلمة بالتشكيل"
+EN_VOICE = "en-US-AndrewNeural"
 NO_ANSWER_EN = "I couldn't find that in the Fund guide. You can contact the Fund management directly or check the Fund portal."
 AR = re.compile(r"[\u0600-\u06FF]")
 NO_ANSWER = "ما لقيت هاي المعلومة في دليل الصندوق. بتقدر تتواصل مع إدارة الصندوق مباشرة أو تراجع بوابة الصندوق الإلكترونية."
@@ -128,7 +132,7 @@ div.stButton>button:focus-visible,a:focus-visible{outline:3px solid var(--gold)!
 .toplinks a{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;min-height:36px;border:1px solid #0B2A5C;border-radius:999px;background:#fff;color:#0B2A5C!important;font-size:.82rem;font-weight:500;text-decoration:none!important;transition:all .2s ease}
 .toplinks a:hover{background:#FFF9E8;border-color:#C9A24A}
 .toplinks svg{width:16px;height:16px}
-.st-key-vc{position:fixed!important;left:12px;bottom:6px;z-index:60;display:flex;flex-direction:row!important;gap:8px!important;width:auto!important}
+.st-key-vc{position:fixed!important;left:12px;bottom:6px;z-index:60;display:flex;flex-direction:row!important;flex-wrap:wrap;gap:8px!important;width:auto!important;max-width:calc(100vw - 24px)}
 .st-key-vc button{min-height:34px;font-size:.78rem;padding:2px 12px}
 .bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .bgfx:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 85% 8%,rgba(201,162,74,.13),transparent 70%),radial-gradient(700px 500px at 8% 95%,rgba(11,42,92,.10),transparent 70%)}
@@ -223,17 +227,28 @@ def spoken(md, lang):
 
 
 def tts(text, lang):
-    voice = AR_VOICES[st.session_state.get("voice_idx", 0) % len(AR_VOICES)][0] if lang == "ar" else EN_VOICE
+    ss_ = st.session_state
+    if lang == "ar":
+        voice = AR_VOICES[ss_.get("voice_idx", 0) % len(AR_VOICES)][0]
+        for k, v in PRON.items():
+            text = text.replace(k, v)
+    else:
+        voice = EN_VOICE
+    rate = RATES[ss_.get("rate_idx", 1) % len(RATES)][1]
+    parts = [p for p in re.split(r"(?<=[.!?؟])\s+", text) if p.strip()]
     try:
         import asyncio
         import edge_tts
 
-        async def run():
+        async def one(p):
             buf = b""
-            async for c in edge_tts.Communicate(text, voice, rate="-6%").stream():
+            async for c in edge_tts.Communicate(p, voice, rate=rate).stream():
                 if c["type"] == "audio":
                     buf += c["data"]
             return buf
+
+        async def run():
+            return b"".join(await asyncio.gather(*[one(p) for p in parts]))
 
         loop = asyncio.new_event_loop()
         try:
@@ -319,6 +334,7 @@ ss.setdefault("voice_on", True)
 _on = "background:#0B2A5C!important;color:#fff!important;border-color:#0B2A5C!important"
 st.markdown("<style>" + (f".st-key-voice_btn button{{{_on}}}" if ss.voice_on else "") + "</style>", unsafe_allow_html=True)
 ss.setdefault("voice_idx", 0)
+ss.setdefault("rate_idx", 1)
 with st.container(key="vc"):
     if st.button("الرد الصوتي: " + ("مفعّل" if ss.voice_on else "متوقف"), key="voice_btn",
                  icon=":material/volume_up:" if ss.voice_on else ":material/volume_off:"):
@@ -326,6 +342,9 @@ with st.container(key="vc"):
         st.rerun()
     if st.button("الصوت: " + AR_VOICES[ss.voice_idx % len(AR_VOICES)][1], key="voice_pick", icon=":material/record_voice_over:"):
         ss.voice_idx = (ss.voice_idx + 1) % len(AR_VOICES)
+        st.rerun()
+    if st.button("السرعة: " + RATES[ss.rate_idx % len(RATES)][0], key="rate_btn", icon=":material/speed:"):
+        ss.rate_idx = (ss.rate_idx + 1) % len(RATES)
         st.rerun()
 components.html(MIC_JS, height=0)
 
